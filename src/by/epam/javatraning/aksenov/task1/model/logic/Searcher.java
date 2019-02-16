@@ -45,4 +45,29 @@ public class Searcher {
         }
         return maxPriceEquipment;
     }
+
+    public static Equipment findMinPriceEquipment(Home home){
+        if (home == null){
+            return null;
+        }
+
+        Equipment[] equipment = home.getEquipment();
+
+        if (equipment == null){
+            return null;
+        }
+
+        if (equipment.length == 0){
+            return null;
+        }
+
+        Equipment minPriceEquipment = equipment[0];
+
+        for (Equipment anEquipment : equipment) {
+            if (minPriceEquipment.getPrice() > anEquipment.getPrice()) {
+                minPriceEquipment = anEquipment;
+            }
+        }
+        return minPriceEquipment;
+    }
 }
