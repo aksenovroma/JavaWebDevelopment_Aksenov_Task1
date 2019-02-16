@@ -21,6 +21,23 @@ public class Searcher {
         return -1;
     }
 
+    public static int findIndexOfEquipmentByPrice(Home home, double key){
+        if (home == null){
+            return -1;
+        }
+
+        Equipment[] equipment = home.getEquipment();
+        int index = 0;
+
+        while (index < equipment.length){
+            if (equipment[index].getPrice() == key){
+                return index;
+            }
+            index++;
+        }
+        return -1;
+    }
+
     public static Equipment findMaxPriceEquipment(Home home){
         if (home == null){
             return null;
