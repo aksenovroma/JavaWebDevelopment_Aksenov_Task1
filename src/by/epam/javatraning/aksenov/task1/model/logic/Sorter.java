@@ -11,6 +11,10 @@ public class Sorter {
 
         Equipment[] equipment = home.getEquipment();
 
+        if (equipment == null){
+            return;
+        }
+
         for (int i = equipment.length - 1; i >= 1; i--){
             for (int j = 0; j < i; j++){
                 if (equipment[j].getPower() < equipment[j+1].getPower()){
