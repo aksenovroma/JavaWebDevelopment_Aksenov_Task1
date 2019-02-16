@@ -1,0 +1,8 @@
+asdas
+  123 ds
+Microwave,120.5,on
+Lamp,20,off
+
+  e12
+ 1231sda
+Toaster,50,on

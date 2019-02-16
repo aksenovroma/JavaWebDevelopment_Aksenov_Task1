@@ -1,0 +1,73 @@
+package by.epam.javatraning.aksenov.task1.model.entity;
+
+import java.util.Objects;
+
+public abstract class Equipment {
+    private double price;
+    private double power;
+    private boolean selector;
+
+    public Equipment() {}
+
+    public Equipment(double price, double power, boolean selector) {
+        this.price = price;
+        this.power = power;
+        this.selector = selector;
+    }
+
+    public Equipment(Equipment equipment){
+        price = equipment.price;
+        power = equipment.power;
+        selector = equipment.selector;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        if (price > 0){
+            this.price = price;
+        }
+    }
+
+    public double getPower() {
+        return power;
+    }
+
+    public void setPower(double power) {
+        if (power > 0){
+            this.power = power;
+        }
+    }
+
+    public boolean isSelector() {
+        return selector;
+    }
+
+    public void setSelector(boolean selector) {
+        this.selector = selector;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Equipment equipment = (Equipment) o;
+        return Double.compare(equipment.price, price) == 0 &&
+                Double.compare(equipment.power, power) == 0 &&
+                selector == equipment.selector;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(price, power, selector);
+    }
+
+    @Override
+    public String toString() {
+        return "price=" + price +
+                ", power=" + power +
+                ", selector=" + selector;
+    }
+}
