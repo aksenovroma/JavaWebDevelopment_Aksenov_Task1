@@ -70,4 +70,54 @@ public class Searcher {
         }
         return minPriceEquipment;
     }
+
+    public static Equipment findMaxPowerEquipment(Home home){
+        if (home == null){
+            return null;
+        }
+
+        Equipment[] equipment = home.getEquipment();
+
+        if (equipment == null){
+            return null;
+        }
+
+        if (equipment.length == 0){
+            return null;
+        }
+
+        Equipment maxPowerEquipment = equipment[0];
+
+        for (Equipment anEquipment : equipment) {
+            if (maxPowerEquipment.getPower() < anEquipment.getPower()) {
+                maxPowerEquipment = anEquipment;
+            }
+        }
+        return maxPowerEquipment;
+    }
+
+    public static Equipment findMinPowerEquipment(Home home){
+        if (home == null){
+            return null;
+        }
+
+        Equipment[] equipment = home.getEquipment();
+
+        if (equipment == null){
+            return null;
+        }
+
+        if (equipment.length == 0){
+            return null;
+        }
+
+        Equipment minPowerEquipment = equipment[0];
+
+        for (Equipment anEquipment : equipment) {
+            if (minPowerEquipment.getPower() > anEquipment.getPower()) {
+                minPowerEquipment = anEquipment;
+            }
+        }
+        return minPowerEquipment;
+    }
 }
