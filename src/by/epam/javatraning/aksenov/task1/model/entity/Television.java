@@ -42,7 +42,7 @@ public class Television extends Equipment {
     @Override
     public String toString() {
         return "Television{" + super.toString() +
-                "diagonal=" + diagonal +
+                ", diagonal=" + diagonal +
                 '}';
     }
 }

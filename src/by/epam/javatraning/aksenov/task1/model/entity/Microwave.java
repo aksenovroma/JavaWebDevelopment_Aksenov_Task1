@@ -42,7 +42,7 @@ public class Microwave extends Equipment{
     @Override
     public String toString() {
         return "Microwave{" + super.toString() +
-                "volume=" + volume +
+                ", volume=" + volume +
                 '}';
     }
 }
