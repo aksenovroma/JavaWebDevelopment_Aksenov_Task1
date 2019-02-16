@@ -4,7 +4,7 @@ import by.epam.javatraning.aksenov.task1.model.entity.Equipment;
 import by.epam.javatraning.aksenov.task1.model.entity.Home;
 
 public class Searcher {
-    public static int findIndexOfDeviceByPower(Home home, double key){
+    public static int findIndexOfEquipmentByPower(Home home, double key){
         if (home == null){
             return -1;
         }
@@ -19,5 +19,30 @@ public class Searcher {
             index++;
         }
         return -1;
+    }
+
+    public static Equipment findMaxPriceEquipment(Home home){
+        if (home == null){
+            return null;
+        }
+
+        Equipment[] equipment = home.getEquipment();
+
+        if (equipment == null){
+            return null;
+        }
+
+        if (equipment.length == 0){
+            return null;
+        }
+
+        Equipment maxPriceEquipment = equipment[0];
+
+        for (Equipment anEquipment : equipment) {
+            if (maxPriceEquipment.getPrice() < anEquipment.getPrice()) {
+                maxPriceEquipment = anEquipment;
+            }
+        }
+        return maxPriceEquipment;
     }
 }

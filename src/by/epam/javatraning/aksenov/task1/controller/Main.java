@@ -1,14 +1,10 @@
 package by.epam.javatraning.aksenov.task1.controller;
 
 import by.epam.javatraning.aksenov.task1.model.entity.*;
-import by.epam.javatraning.aksenov.task1.model.logic.Sorter;
-import by.epam.javatraning.aksenov.task1.util.DataReader;
-import by.epam.javatraning.aksenov.task1.util.DataValidator;
 import by.epam.javatraning.aksenov.task1.util.PrinterCreator;
 import by.epam.javatraning.aksenov.task1.view.Printable;
 import by.epam.javatraning.aksenov.task1.view.PrinterType;
 
-import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,7 +18,6 @@ public class Main {
         Home home = new Home(lamp1);
 
         Printable printer = PrinterCreator.create(PrinterType.CONSOLE);
-
 
 
     }
