@@ -11,6 +11,10 @@ public class Calculator {
             return sumPower;
         }
 
+        if (home.getEquipment() == null){
+            return sumPower;
+        }
+
         for (Equipment equipment : home.getEquipment()){
             sumPower += equipment.getPower();
         }
@@ -21,6 +25,10 @@ public class Calculator {
         double sumPower = 0;
 
         if (home == null){
+            return sumPower;
+        }
+
+        if (home.getEquipment() == null){
             return sumPower;
         }
 
