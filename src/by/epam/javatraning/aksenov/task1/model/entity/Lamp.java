@@ -7,6 +7,10 @@ public class Lamp extends Equipment{
 
     public Lamp() {}
 
+    public Lamp(double price, double power, boolean selector) {
+        super(price, power, selector);
+    }
+
     public Lamp(double price, double power, boolean selector, int lightbulb) {
         super(price, power, selector);
         this.lightbulb = lightbulb;
@@ -22,7 +26,9 @@ public class Lamp extends Equipment{
     }
 
     public void setLightbulb(int lightbulb) {
-        this.lightbulb = lightbulb;
+        if (lightbulb > 0){
+            this.lightbulb = lightbulb;
+        }
     }
 
     @Override

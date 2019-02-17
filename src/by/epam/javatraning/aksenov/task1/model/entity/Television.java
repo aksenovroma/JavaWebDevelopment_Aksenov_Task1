@@ -7,6 +7,10 @@ public class Television extends Equipment {
 
     public Television() {}
 
+    public Television(double price, double power, boolean selector) {
+        super(price, power, selector);
+    }
+
     public Television(double price, double power, boolean selector, double diagonal) {
         super(price, power, selector);
         this.diagonal = diagonal;
@@ -22,7 +26,9 @@ public class Television extends Equipment {
     }
 
     public void setDiagonal(double diagonal) {
-        this.diagonal = diagonal;
+        if (diagonal > 0){
+            this.diagonal = diagonal;
+        }
     }
 
     @Override

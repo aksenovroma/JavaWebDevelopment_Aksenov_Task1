@@ -1,23 +1,28 @@
 package by.epam.javatraning.aksenov.task1.util;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DataValidator {
-    private static final String DATA_REGEX = "(Microwave|Lamp|Toaster),\\d+(\\.\\d+)?,(on|off)";
+    private static final String DATA_REGEX;
 
-    public static ArrayList<String> getValidString(ArrayList<String> arrayOfString){
-        if (arrayOfString == null){
+    static {
+        DATA_REGEX = "(Microwave|Lamp|Television),\\d+(\\.\\d+)?,\\d+(\\.\\d+)?,(on|off),\\d+(\\.\\d+)?";
+    }
+
+    public static List<String> getValidString(List<String> stringList){
+        if (stringList == null){
             return null;
         }
 
-        ArrayList<String> arrayList = new ArrayList<>();
+        List<String> list = new ArrayList<>();
 
-        for (String str : arrayOfString){
+        for (String str : stringList){
             if (str.matches(DATA_REGEX)) {
-                arrayList.add(str);
+                list.add(str);
             }
         }
 
-        return arrayList;
+        return list;
     }
 }

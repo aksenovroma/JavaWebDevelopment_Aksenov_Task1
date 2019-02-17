@@ -7,6 +7,10 @@ public class Microwave extends Equipment{
 
     public Microwave() {}
 
+    public Microwave(double price, double power, boolean selector) {
+        super(price, power, selector);
+    }
+
     public Microwave(double price, double power, boolean selector, double volume) {
         super(price, power, selector);
         this.volume = volume;
@@ -22,7 +26,9 @@ public class Microwave extends Equipment{
     }
 
     public void setVolume(double volume) {
-        this.volume = volume;
+        if (volume > 0){
+            this.volume = volume;
+        }
     }
 
     @Override

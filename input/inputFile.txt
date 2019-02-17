@@ -1,8 +1,9 @@
 asdas
   123 ds
-Microwave,120.5,on
+Microwave,120.5,500,on,15
 Lamp,20,off
-
+Lamp,50,60,on,3
+Television,230.3,240,off,23
   e12
  1231sda
 Toaster,50,on

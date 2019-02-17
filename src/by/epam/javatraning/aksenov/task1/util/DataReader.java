@@ -2,14 +2,15 @@ package by.epam.javatraning.aksenov.task1.util;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class DataReader{
-    public static ArrayList<String> readStringsFromFile(String filename){
+    public static List<String> readFile(String filename){
         if (filename == null){
             return null;
         }
 
-        ArrayList<String> arrayList = new ArrayList<>(0);
+        List<String> stringList = new ArrayList<>(0);
         FileInputStream fstream = null;
 
         try{
@@ -18,7 +19,7 @@ public class DataReader{
             String strLine;
 
             while ((strLine = br.readLine()) != null){
-                arrayList.add(strLine);
+                stringList.add(strLine);
             }
         }catch (FileNotFoundException e){
             System.out.println(e.getMessage());
@@ -34,6 +35,6 @@ public class DataReader{
             }
         }
 
-        return arrayList;
+        return stringList;
     }
 }
