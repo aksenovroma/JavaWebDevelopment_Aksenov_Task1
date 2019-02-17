@@ -1,6 +1,7 @@
 package by.epam.javatraning.aksenov.task1.controller;
 
 import by.epam.javatraning.aksenov.task1.model.entity.*;
+import by.epam.javatraning.aksenov.task1.model.logic.Calculator;
 import by.epam.javatraning.aksenov.task1.model.logic.Searcher;
 import by.epam.javatraning.aksenov.task1.model.logic.Sorter;
 import by.epam.javatraning.aksenov.task1.util.*;
@@ -25,9 +26,11 @@ public class Main {
 
         printer.print(home);
         Sorter.bubbleSortByPower(home);
-        home.setEquipment(equipment);
         printer.print(home);
-
+        double count = Calculator.sumPowerOfDevices(home);
+        printer.print(count);
+        Equipment e = Searcher.findMaxPowerEquipment(home);
+        printer.print(e);
 
     }
 }
