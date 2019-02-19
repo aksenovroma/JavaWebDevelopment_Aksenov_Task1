@@ -2,7 +2,9 @@ package by.epam.javatraning.aksenov.task1.model.entity;
 
 import java.util.Objects;
 
-public class Television extends Equipment {
+public class Television extends Equipment{
+    private static final String ILLEGAL_ARGUMENT_EXC = "argument can't be negative or null";
+
     private double diagonal;
 
     public Television() {}
@@ -13,12 +15,16 @@ public class Television extends Equipment {
 
     public Television(double price, double power, boolean selector, double diagonal) {
         super(price, power, selector);
-        this.diagonal = diagonal;
+        if (diagonal > 0){
+            this.diagonal = diagonal;
+        }
     }
 
     public Television(Equipment equipment, double diagonal) {
         super(equipment);
-        this.diagonal = diagonal;
+        if (diagonal > 0){
+            this.diagonal = diagonal;
+        }
     }
 
     public double getDiagonal() {
@@ -26,9 +32,10 @@ public class Television extends Equipment {
     }
 
     public void setDiagonal(double diagonal) {
-        if (diagonal > 0){
-            this.diagonal = diagonal;
+        if (diagonal <= 0){
+            throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
         }
+        this.diagonal = diagonal;
     }
 
     @Override

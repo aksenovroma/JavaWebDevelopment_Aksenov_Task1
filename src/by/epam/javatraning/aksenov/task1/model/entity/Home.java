@@ -3,10 +3,13 @@ package by.epam.javatraning.aksenov.task1.model.entity;
 import java.util.Arrays;
 
 public class Home {
+    private static final String NULL_POINTER_EXC = "argument can't be null";
     private Equipment[] equipment;
 
     public Home(Equipment... equipment) {
-        this.equipment = equipment;
+        if (equipment != null){
+            this.equipment = equipment;
+        }
     }
 
     public Equipment[] getEquipment() {
@@ -14,9 +17,10 @@ public class Home {
     }
 
     public void setEquipment(Equipment[] equipment) {
-        if (equipment != null){
-            this.equipment = equipment;
+        if (equipment == null){
+            throw new NullPointerException(NULL_POINTER_EXC);
         }
+        this.equipment = equipment;
     }
 
     public void add(Equipment e){

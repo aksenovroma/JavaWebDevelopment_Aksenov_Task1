@@ -3,6 +3,8 @@ package by.epam.javatraning.aksenov.task1.model.entity;
 import java.util.Objects;
 
 public class Lamp extends Equipment{
+    private static final String ILLEGAL_ARGUMENT_EXC = "argument can't be negative or null";
+
     private int lightbulb;
 
     public Lamp() {}
@@ -13,12 +15,16 @@ public class Lamp extends Equipment{
 
     public Lamp(double price, double power, boolean selector, int lightbulb) {
         super(price, power, selector);
-        this.lightbulb = lightbulb;
+        if (lightbulb > 0){
+            this.lightbulb = lightbulb;
+        }
     }
 
     public Lamp(Equipment equipment, int lightbulb) {
         super(equipment);
-        this.lightbulb = lightbulb;
+        if (lightbulb > 0){
+            this.lightbulb = lightbulb;
+        }
     }
 
     public int getLightbulb() {
@@ -26,9 +32,10 @@ public class Lamp extends Equipment{
     }
 
     public void setLightbulb(int lightbulb) {
-        if (lightbulb > 0){
-            this.lightbulb = lightbulb;
+        if (lightbulb <= 0){
+            throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
         }
+        this.lightbulb = lightbulb;
     }
 
     @Override

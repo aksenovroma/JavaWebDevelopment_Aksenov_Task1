@@ -1,4 +1,4 @@
-package by.epam.javatraning.aksenov.task1.util;
+package by.epam.javatraning.aksenov.task1.util.data;
 
 import java.io.*;
 import java.util.ArrayList;

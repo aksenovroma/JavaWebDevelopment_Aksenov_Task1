@@ -3,6 +3,8 @@ package by.epam.javatraning.aksenov.task1.model.entity;
 import java.util.Objects;
 
 public abstract class Equipment {
+    private static final String ILLEGAL_ARGUMENT_EXC = "argument can't be negative or null";
+
     private double price;
     private double power;
     private boolean selector;
@@ -10,15 +12,21 @@ public abstract class Equipment {
     public Equipment() {}
 
     public Equipment(double price, double power, boolean selector) {
-        this.price = price;
-        this.power = power;
+        if (price > 0){
+            this.price = price;
+        }
+        if (power > 0){
+            this.power = power;
+        }
         this.selector = selector;
     }
 
     public Equipment(Equipment equipment){
-        price = equipment.price;
-        power = equipment.power;
-        selector = equipment.selector;
+        if (equipment != null){
+            price = equipment.price;
+            power = equipment.power;
+            selector = equipment.selector;
+        }
     }
 
     public double getPrice() {
@@ -26,9 +34,10 @@ public abstract class Equipment {
     }
 
     public void setPrice(double price) {
-        if (price > 0){
-            this.price = price;
+        if (price <= 0){
+            throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
         }
+        this.price = price;
     }
 
     public double getPower() {
@@ -36,9 +45,10 @@ public abstract class Equipment {
     }
 
     public void setPower(double power) {
-        if (power > 0){
-            this.power = power;
+        if (power <= 0){
+            throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
         }
+        this.power = power;
     }
 
     public boolean isSelector() {

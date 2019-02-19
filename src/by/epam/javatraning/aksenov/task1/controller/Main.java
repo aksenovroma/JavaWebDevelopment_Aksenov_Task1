@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         Printable printer = PrinterCreator.create(PrinterType.CONSOLE);
 
-        List<String> list = DataReader.readFile("input/inputFile.txt");
+        /*List<String> list = DataReader.readFile("input/inputFile.txt");
         List<String> validList = DataValidator.getValidString(list);
 
         EquipmentType[] equipmentTypes = DataConverter.convertStrToEquipmentType(validList);
@@ -30,7 +30,13 @@ public class Main {
         double count = Calculator.sumPowerOfDevices(home);
         printer.print(count);
         Equipment e = Searcher.findMaxPowerEquipment(home);
-        printer.print(e);
+        printer.print(e);*/
+
+        Lamp lamp = new Lamp(123, -30, true, 3);
+        lamp.setPrice(5);
+        Home home = new Home();
+        home.setEquipment(null);
+        printer.print(lamp);
 
     }
 }

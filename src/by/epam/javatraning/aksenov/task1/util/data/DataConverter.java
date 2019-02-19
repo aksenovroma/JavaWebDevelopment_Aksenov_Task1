@@ -1,4 +1,6 @@
-package by.epam.javatraning.aksenov.task1.util;
+package by.epam.javatraning.aksenov.task1.util.data;
+
+import by.epam.javatraning.aksenov.task1.util.EquipmentType;
 
 import java.util.List;
 

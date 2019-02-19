@@ -3,6 +3,8 @@ package by.epam.javatraning.aksenov.task1.model.entity;
 import java.util.Objects;
 
 public class Microwave extends Equipment{
+    private static final String ILLEGAL_ARGUMENT_EXC = "argument can't be negative or null";
+
     private double volume;
 
     public Microwave() {}
@@ -13,12 +15,16 @@ public class Microwave extends Equipment{
 
     public Microwave(double price, double power, boolean selector, double volume) {
         super(price, power, selector);
-        this.volume = volume;
+        if (volume > 0){
+            this.volume = volume;
+        }
     }
 
     public Microwave(Equipment equipment, double volume) {
         super(equipment);
-        this.volume = volume;
+        if (volume > 0){
+            this.volume = volume;
+        }
     }
 
     public double getVolume() {
@@ -26,9 +32,10 @@ public class Microwave extends Equipment{
     }
 
     public void setVolume(double volume) {
-        if (volume > 0){
-            this.volume = volume;
+        if (volume <= 0){
+            throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
         }
+        this.volume = volume;
     }
 
     @Override
