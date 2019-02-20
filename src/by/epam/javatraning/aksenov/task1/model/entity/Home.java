@@ -7,7 +7,7 @@ public class Home {
     private Equipment[] equipment;
 
     public Home(Equipment... equipment) {
-        if (equipment != null){
+        if (equipment != null) {
             this.equipment = equipment;
         }
     }
@@ -17,16 +17,16 @@ public class Home {
     }
 
     public void setEquipment(Equipment[] equipment) {
-        if (equipment == null){
+        if (equipment == null) {
             throw new NullPointerException(NULL_POINTER_EXC);
         }
         this.equipment = equipment;
     }
 
-    public void add(Equipment e){
+    public void add(Equipment e) {
         Equipment[] newEquipment = new Equipment[equipment.length + 1];
 
-        for (int i = 0; i < equipment.length; i++){
+        for (int i = 0; i < equipment.length; i++) {
             newEquipment[i] = equipment[i];
         }
         newEquipment[equipment.length] = e;
@@ -34,12 +34,12 @@ public class Home {
         equipment = newEquipment;
     }
 
-    public void remove(Equipment e){
-        if (atHome(e)){
+    public void remove(Equipment e) {
+        if (atHome(e)) {
             Equipment[] newEquipment = new Equipment[equipment.length - 1];
 
-            for (int i = 0, j = 0; i < equipment.length; i++, j++){
-                if (!(e.equals(equipment[i]))){
+            for (int i = 0, j = 0; i < equipment.length; i++, j++) {
+                if (!(e.equals(equipment[i]))) {
                     newEquipment[j] = equipment[i];
                 } else {
                     j--;
@@ -49,13 +49,13 @@ public class Home {
         }
     }
 
-    public boolean atHome(Equipment e){
-        if (e == null){
+    public boolean atHome(Equipment e) {
+        if (e == null) {
             return false;
         }
 
-        for (Equipment device : equipment){
-            if (e.equals(device)){
+        for (Equipment device : equipment) {
+            if (e.equals(device)) {
                 return true;
             }
         }

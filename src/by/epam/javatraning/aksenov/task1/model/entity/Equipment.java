@@ -9,20 +9,21 @@ public abstract class Equipment {
     private double power;
     private boolean selector;
 
-    public Equipment() {}
+    public Equipment() {
+    }
 
     public Equipment(double price, double power, boolean selector) {
-        if (price > 0){
+        if (price > 0) {
             this.price = price;
         }
-        if (power > 0){
+        if (power > 0) {
             this.power = power;
         }
         this.selector = selector;
     }
 
-    public Equipment(Equipment equipment){
-        if (equipment != null){
+    public Equipment(Equipment equipment) {
+        if (equipment != null) {
             price = equipment.price;
             power = equipment.power;
             selector = equipment.selector;
@@ -34,7 +35,7 @@ public abstract class Equipment {
     }
 
     public void setPrice(double price) {
-        if (price <= 0){
+        if (price <= 0) {
             throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
         }
         this.price = price;
@@ -45,7 +46,7 @@ public abstract class Equipment {
     }
 
     public void setPower(double power) {
-        if (power <= 0){
+        if (power <= 0) {
             throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
         }
         this.power = power;

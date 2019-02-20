@@ -2,12 +2,13 @@ package by.epam.javatraning.aksenov.task1.model.entity;
 
 import java.util.Objects;
 
-public class Microwave extends Equipment{
+public class Microwave extends Equipment {
     private static final String ILLEGAL_ARGUMENT_EXC = "argument can't be negative or null";
 
     private double volume;
 
-    public Microwave() {}
+    public Microwave() {
+    }
 
     public Microwave(double price, double power, boolean selector) {
         super(price, power, selector);
@@ -15,14 +16,14 @@ public class Microwave extends Equipment{
 
     public Microwave(double price, double power, boolean selector, double volume) {
         super(price, power, selector);
-        if (volume > 0){
+        if (volume > 0) {
             this.volume = volume;
         }
     }
 
     public Microwave(Equipment equipment, double volume) {
         super(equipment);
-        if (volume > 0){
+        if (volume > 0) {
             this.volume = volume;
         }
     }
@@ -32,7 +33,7 @@ public class Microwave extends Equipment{
     }
 
     public void setVolume(double volume) {
-        if (volume <= 0){
+        if (volume <= 0) {
             throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
         }
         this.volume = volume;

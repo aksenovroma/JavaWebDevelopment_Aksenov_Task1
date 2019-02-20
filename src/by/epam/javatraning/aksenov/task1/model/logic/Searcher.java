@@ -4,16 +4,16 @@ import by.epam.javatraning.aksenov.task1.model.entity.Equipment;
 import by.epam.javatraning.aksenov.task1.model.entity.Home;
 
 public class Searcher {
-    public static int findIndexOfEquipmentByPower(Home home, double key){
-        if (home == null){
+    public static int findIndexOfEquipmentByPower(Home home, double key) {
+        if (home == null) {
             return -1;
         }
 
         Equipment[] equipment = home.getEquipment();
         int index = 0;
 
-        while (index < equipment.length){
-            if (equipment[index].getPower() == key){
+        while (index < equipment.length) {
+            if (equipment[index].getPower() == key) {
                 return index;
             }
             index++;
@@ -21,16 +21,16 @@ public class Searcher {
         return -1;
     }
 
-    public static int findIndexOfEquipmentByPrice(Home home, double key){
-        if (home == null){
+    public static int findIndexOfEquipmentByPrice(Home home, double key) {
+        if (home == null) {
             return -1;
         }
 
         Equipment[] equipment = home.getEquipment();
         int index = 0;
 
-        while (index < equipment.length){
-            if (equipment[index].getPrice() == key){
+        while (index < equipment.length) {
+            if (equipment[index].getPrice() == key) {
                 return index;
             }
             index++;
@@ -38,18 +38,18 @@ public class Searcher {
         return -1;
     }
 
-    public static Equipment findMaxPriceEquipment(Home home){
-        if (home == null){
+    public static Equipment findMaxPriceEquipment(Home home) {
+        if (home == null) {
             return null;
         }
 
         Equipment[] equipment = home.getEquipment();
 
-        if (equipment == null){
+        if (equipment == null) {
             return null;
         }
 
-        if (equipment.length == 0){
+        if (equipment.length == 0) {
             return null;
         }
 
@@ -63,18 +63,18 @@ public class Searcher {
         return maxPriceEquipment;
     }
 
-    public static Equipment findMinPriceEquipment(Home home){
-        if (home == null){
+    public static Equipment findMinPriceEquipment(Home home) {
+        if (home == null) {
             return null;
         }
 
         Equipment[] equipment = home.getEquipment();
 
-        if (equipment == null){
+        if (equipment == null) {
             return null;
         }
 
-        if (equipment.length == 0){
+        if (equipment.length == 0) {
             return null;
         }
 
@@ -88,18 +88,18 @@ public class Searcher {
         return minPriceEquipment;
     }
 
-    public static Equipment findMaxPowerEquipment(Home home){
-        if (home == null){
+    public static Equipment findMaxPowerEquipment(Home home) {
+        if (home == null) {
             return null;
         }
 
         Equipment[] equipment = home.getEquipment();
 
-        if (equipment == null){
+        if (equipment == null) {
             return null;
         }
 
-        if (equipment.length == 0){
+        if (equipment.length == 0) {
             return null;
         }
 
@@ -113,18 +113,18 @@ public class Searcher {
         return maxPowerEquipment;
     }
 
-    public static Equipment findMinPowerEquipment(Home home){
-        if (home == null){
+    public static Equipment findMinPowerEquipment(Home home) {
+        if (home == null) {
             return null;
         }
 
         Equipment[] equipment = home.getEquipment();
 
-        if (equipment == null){
+        if (equipment == null) {
             return null;
         }
 
-        if (equipment.length == 0){
+        if (equipment.length == 0) {
             return null;
         }
 

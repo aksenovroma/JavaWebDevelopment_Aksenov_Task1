@@ -10,14 +10,14 @@ public class DataValidator {
         DATA_REGEX = "(Microwave|Lamp|Television),\\d+(\\.\\d+)?,\\d+(\\.\\d+)?,(on|off),\\d+(\\.\\d+)?";
     }
 
-    public static List<String> getValidString(List<String> stringList){
-        if (stringList == null){
+    public static List<String> getValidString(List<String> stringList) {
+        if (stringList == null) {
             return null;
         }
 
         List<String> list = new ArrayList<>();
 
-        for (String str : stringList){
+        for (String str : stringList) {
             if (str.matches(DATA_REGEX)) {
                 list.add(str);
             }

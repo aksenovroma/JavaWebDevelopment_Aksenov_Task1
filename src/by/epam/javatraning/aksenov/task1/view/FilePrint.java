@@ -3,16 +3,16 @@ package by.epam.javatraning.aksenov.task1.view;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class FilePrint implements Printable{
+public class FilePrint implements Printable {
     @Override
     public void print(Object o) {
-        if (o == null){
+        if (o == null) {
             return;
         }
 
-        try (FileWriter fileWriter = new FileWriter("output/outputFile.txt", true)){
+        try (FileWriter fileWriter = new FileWriter("output/outputFile.txt", true)) {
             fileWriter.write(o.toString() + '\n');
-        } catch (IOException e){
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }

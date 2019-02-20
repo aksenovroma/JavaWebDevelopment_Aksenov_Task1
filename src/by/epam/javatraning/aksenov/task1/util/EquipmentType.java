@@ -3,6 +3,9 @@ package by.epam.javatraning.aksenov.task1.util;
 import java.util.Objects;
 
 public class EquipmentType {
+    private static final String NULL_POINTER_EXC = "argument can't be null";
+    private static final String ILLEGAL_ARGUMENT_EXC = "argument can't be negative or null";
+
     private String name;
     private double price;
     private double power;
@@ -10,11 +13,19 @@ public class EquipmentType {
     private String someField;
 
     public EquipmentType(String name, double price, double power, boolean selector, String someField) {
-        this.name = name;
-        this.price = price;
-        this.power = power;
+        if (name != null) {
+            this.name = name;
+        }
+        if (price > 0) {
+            this.price = price;
+        }
+        if (power > 0) {
+            this.power = power;
+        }
+        if (someField != null) {
+            this.someField = someField;
+        }
         this.selector = selector;
-        this.someField = someField;
     }
 
     public String getName() {
@@ -22,6 +33,9 @@ public class EquipmentType {
     }
 
     public void setName(String name) {
+        if (name == null) {
+            throw new NullPointerException(NULL_POINTER_EXC);
+        }
         this.name = name;
     }
 
@@ -30,6 +44,9 @@ public class EquipmentType {
     }
 
     public void setPrice(double price) {
+        if (price <= 0) {
+            throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
+        }
         this.price = price;
     }
 
@@ -38,6 +55,9 @@ public class EquipmentType {
     }
 
     public void setPower(double power) {
+        if (power <= 0) {
+            throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
+        }
         this.power = power;
     }
 
@@ -54,6 +74,9 @@ public class EquipmentType {
     }
 
     public void setSomeField(String someField) {
+        if (someField != null) {
+            throw new NullPointerException(NULL_POINTER_EXC);
+        }
         this.someField = someField;
     }
 

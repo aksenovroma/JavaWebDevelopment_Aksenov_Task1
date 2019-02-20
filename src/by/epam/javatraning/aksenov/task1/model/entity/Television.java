@@ -2,12 +2,13 @@ package by.epam.javatraning.aksenov.task1.model.entity;
 
 import java.util.Objects;
 
-public class Television extends Equipment{
+public class Television extends Equipment {
     private static final String ILLEGAL_ARGUMENT_EXC = "argument can't be negative or null";
 
     private double diagonal;
 
-    public Television() {}
+    public Television() {
+    }
 
     public Television(double price, double power, boolean selector) {
         super(price, power, selector);
@@ -15,14 +16,14 @@ public class Television extends Equipment{
 
     public Television(double price, double power, boolean selector, double diagonal) {
         super(price, power, selector);
-        if (diagonal > 0){
+        if (diagonal > 0) {
             this.diagonal = diagonal;
         }
     }
 
     public Television(Equipment equipment, double diagonal) {
         super(equipment);
-        if (diagonal > 0){
+        if (diagonal > 0) {
             this.diagonal = diagonal;
         }
     }
@@ -32,7 +33,7 @@ public class Television extends Equipment{
     }
 
     public void setDiagonal(double diagonal) {
-        if (diagonal <= 0){
+        if (diagonal <= 0) {
             throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
         }
         this.diagonal = diagonal;
