@@ -7,11 +7,7 @@ public class Calculator {
     public static double sumPowerOfDevices(Home home) {
         double sumPower = 0;
 
-        if (home == null) {
-            return sumPower;
-        }
-
-        if (home.getEquipment() == null) {
+        if (home == null || home.getEquipment() == null) {
             return sumPower;
         }
 
@@ -24,11 +20,7 @@ public class Calculator {
     public static double sumPowerOfOnDevices(Home home) {
         double sumPower = 0;
 
-        if (home == null) {
-            return sumPower;
-        }
-
-        if (home.getEquipment() == null) {
+        if (home == null || home.getEquipment() == null) {
             return sumPower;
         }
 
