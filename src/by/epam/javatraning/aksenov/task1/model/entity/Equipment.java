@@ -13,10 +13,10 @@ public class Equipment {
     }
 
     public Equipment(double price, double power, boolean selector) {
-        if (price > 0) {
+        if (price >= 0) {
             this.price = price;
         }
-        if (power > 0) {
+        if (power >= 0) {
             this.power = power;
         }
         this.selector = selector;
@@ -35,7 +35,7 @@ public class Equipment {
     }
 
     public void setPrice(double price) {
-        if (price <= 0) {
+        if (price < 0) {
             throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
         }
         this.price = price;
@@ -46,7 +46,7 @@ public class Equipment {
     }
 
     public void setPower(double power) {
-        if (power <= 0) {
+        if (power < 0) {
             throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
         }
         this.power = power;

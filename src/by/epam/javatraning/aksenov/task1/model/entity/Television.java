@@ -16,14 +16,14 @@ public class Television extends Equipment {
 
     public Television(double price, double power, boolean selector, double diagonal) {
         super(price, power, selector);
-        if (diagonal > 0) {
+        if (diagonal >= 0) {
             this.diagonal = diagonal;
         }
     }
 
     public Television(Equipment equipment, double diagonal) {
         super(equipment);
-        if (diagonal > 0) {
+        if (diagonal >= 0) {
             this.diagonal = diagonal;
         }
     }
@@ -33,7 +33,7 @@ public class Television extends Equipment {
     }
 
     public void setDiagonal(double diagonal) {
-        if (diagonal <= 0) {
+        if (diagonal < 0) {
             throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
         }
         this.diagonal = diagonal;

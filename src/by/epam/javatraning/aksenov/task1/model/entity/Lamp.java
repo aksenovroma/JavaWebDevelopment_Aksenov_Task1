@@ -16,14 +16,14 @@ public class Lamp extends Equipment {
 
     public Lamp(double price, double power, boolean selector, int lightbulb) {
         super(price, power, selector);
-        if (lightbulb > 0) {
+        if (lightbulb >= 0) {
             this.lightbulb = lightbulb;
         }
     }
 
     public Lamp(Equipment equipment, int lightbulb) {
         super(equipment);
-        if (lightbulb > 0) {
+        if (lightbulb >= 0) {
             this.lightbulb = lightbulb;
         }
     }
@@ -33,7 +33,7 @@ public class Lamp extends Equipment {
     }
 
     public void setLightbulb(int lightbulb) {
-        if (lightbulb <= 0) {
+        if (lightbulb < 0) {
             throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
         }
         this.lightbulb = lightbulb;

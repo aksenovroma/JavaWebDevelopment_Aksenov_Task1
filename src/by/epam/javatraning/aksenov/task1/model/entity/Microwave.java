@@ -23,7 +23,7 @@ public class Microwave extends Equipment {
 
     public Microwave(Equipment equipment, double volume) {
         super(equipment);
-        if (volume > 0) {
+        if (volume >= 0) {
             this.volume = volume;
         }
     }
@@ -33,7 +33,7 @@ public class Microwave extends Equipment {
     }
 
     public void setVolume(double volume) {
-        if (volume <= 0) {
+        if (volume < 0) {
             throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
         }
         this.volume = volume;
