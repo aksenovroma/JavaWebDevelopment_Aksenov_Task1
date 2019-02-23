@@ -1,6 +1,6 @@
 package by.epam.javatraning.aksenov.task1.util.data;
 
-import by.epam.javatraning.aksenov.task1.util.exception.NoValidStringException;
+import by.epam.javatraning.aksenov.task1.util.exception.InvalidStringException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ public class DataValidator {
         NO_VALID_STRING_EXCEPTION = "file hasn't valid strings";
     }
 
-    public static List<String> getValidString(List<String> stringList) throws NoValidStringException{
+    public static List<String> getValidString(List<String> stringList) throws InvalidStringException {
         if (stringList == null) {
             return null;
         }
@@ -28,7 +28,7 @@ public class DataValidator {
         }
 
         if (list.size() == 0) {
-            throw new NoValidStringException(NO_VALID_STRING_EXCEPTION);
+            throw new InvalidStringException(NO_VALID_STRING_EXCEPTION);
         }
 
         return list;
