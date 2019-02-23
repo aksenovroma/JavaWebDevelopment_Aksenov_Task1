@@ -5,7 +5,7 @@ import by.epam.javatraning.aksenov.task1.util.EquipmentType;
 import java.util.List;
 
 public class DataConverter {
-    public static EquipmentType[] convertStrToEquipmentType(List<String> list) {
+    public static EquipmentType[] strToEquipmentType(List<String> list) {
         if (list == null) {
             return null;
         }

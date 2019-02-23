@@ -2,7 +2,7 @@ package by.epam.javatraning.aksenov.task1.model.entity;
 
 import java.util.Objects;
 
-public abstract class Equipment {
+public class Equipment {
     private static final String ILLEGAL_ARGUMENT_EXC = "argument can't be negative or null";
 
     private double price;

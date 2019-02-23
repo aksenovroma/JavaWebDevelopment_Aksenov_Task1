@@ -8,7 +8,10 @@ import by.epam.javatraning.aksenov.task1.util.*;
 import by.epam.javatraning.aksenov.task1.util.data.DataConverter;
 import by.epam.javatraning.aksenov.task1.util.data.DataReader;
 import by.epam.javatraning.aksenov.task1.util.data.DataValidator;
+import by.epam.javatraning.aksenov.task1.util.entitycreator.EquipmentCreator;
 import by.epam.javatraning.aksenov.task1.util.entitycreator.HomeCreator;
+import by.epam.javatraning.aksenov.task1.util.exception.EmptyFileException;
+import by.epam.javatraning.aksenov.task1.util.exception.NoValidStringException;
 import by.epam.javatraning.aksenov.task1.view.Printable;
 import by.epam.javatraning.aksenov.task1.view.PrinterType;
 
@@ -16,15 +19,32 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Printable printer = PrinterCreator.create(PrinterType.CONSOLE);
+        System.out.println("input file name: ");
 
-        List<String> list = DataReader.readFile("input/inputFile.txt");
-        List<String> validList = DataValidator.getValidString(list);
+        String filename = UserInput.inputString();
+        List<String> list = null;
 
-        EquipmentType[] equipmentTypes = DataConverter.convertStrToEquipmentType(validList);
+        try {
+            list = DataReader.readFile("input/" + filename);
+        } catch (EmptyFileException e) {
+            System.out.println(e.getMessage());
+        }
+
+        List<String> validList = null;
+
+        try {
+            validList = DataValidator.getValidString(list);
+        } catch (NoValidStringException e) {
+            System.out.println(e.getMessage());
+        }
+
+        EquipmentType[] equipmentTypes = DataConverter.strToEquipmentType(validList);
         Equipment[] equipment = EquipmentCreator.create(equipmentTypes);
 
         Home home = HomeCreator.create(equipment);
+
+        PrinterType printerType = UserPrinter.select();
+        Printable printer = PrinterCreator.create(printerType);
 
         printer.print(home);
         Sorter.bubbleSortByPower(home);

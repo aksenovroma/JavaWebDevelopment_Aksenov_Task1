@@ -1,11 +1,15 @@
 package by.epam.javatraning.aksenov.task1.util.data;
 
+import by.epam.javatraning.aksenov.task1.util.exception.EmptyFileException;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DataReader {
-    public static List<String> readFile(String filename) {
+    private static final String EMPTY_FILE_EXCEPTION = "file is empty";
+
+    public static List<String> readFile(String filename) throws EmptyFileException{
         if (filename == null) {
             return null;
         }
@@ -21,8 +25,11 @@ public class DataReader {
             while ((strLine = br.readLine()) != null) {
                 stringList.add(strLine);
             }
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
+
+            if (stringList.size() == 0){
+                throw new EmptyFileException(EMPTY_FILE_EXCEPTION);
+            }
+
         } catch (IOException e) {
             System.out.println(e.getMessage());
         } finally {

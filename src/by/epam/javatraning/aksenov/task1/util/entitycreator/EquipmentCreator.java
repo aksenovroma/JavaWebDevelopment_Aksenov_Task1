@@ -1,6 +1,7 @@
-package by.epam.javatraning.aksenov.task1.util;
+package by.epam.javatraning.aksenov.task1.util.entitycreator;
 
 import by.epam.javatraning.aksenov.task1.model.entity.Equipment;
+import by.epam.javatraning.aksenov.task1.util.EquipmentType;
 import by.epam.javatraning.aksenov.task1.util.entitycreator.Creator;
 import by.epam.javatraning.aksenov.task1.util.entitycreator.LampCreator;
 import by.epam.javatraning.aksenov.task1.util.entitycreator.MicrowaveCreator;
