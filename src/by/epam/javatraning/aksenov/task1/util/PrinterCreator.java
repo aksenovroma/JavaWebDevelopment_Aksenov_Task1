@@ -5,7 +5,16 @@ import by.epam.javatraning.aksenov.task1.view.FilePrint;
 import by.epam.javatraning.aksenov.task1.view.Printable;
 import by.epam.javatraning.aksenov.task1.view.PrinterType;
 
+/**
+ * @author aksenov
+ * @version 1.0
+ */
 public class PrinterCreator {
+    /**
+     *
+     * @param printerType - type of printer that user want to use
+     * @return Printable object
+     */
     public static Printable create(PrinterType printerType) {
         Printable printer = null;
 

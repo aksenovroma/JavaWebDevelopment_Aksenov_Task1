@@ -11,7 +11,7 @@ import by.epam.javatraning.aksenov.task1.util.data.DataValidator;
 import by.epam.javatraning.aksenov.task1.util.entitycreator.EquipmentCreator;
 import by.epam.javatraning.aksenov.task1.util.entitycreator.HomeCreator;
 import by.epam.javatraning.aksenov.task1.util.exception.EmptyFileException;
-import by.epam.javatraning.aksenov.task1.util.exception.InvalidStringException;
+import by.epam.javatraning.aksenov.task1.util.exception.NoValidStringException;
 import by.epam.javatraning.aksenov.task1.view.Printable;
 import by.epam.javatraning.aksenov.task1.view.PrinterType;
 
@@ -43,7 +43,7 @@ public class Main {
 
         try {
             validList = DataValidator.getValidString(list);
-        } catch (InvalidStringException e) {
+        } catch (NoValidStringException e) {
             System.out.println(e.getMessage());
         }
 

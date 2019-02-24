@@ -1,9 +1,16 @@
 package by.epam.javatraning.aksenov.task1.util.data;
 
-import by.epam.javatraning.aksenov.task1.util.exception.InvalidStringException;
+import by.epam.javatraning.aksenov.task1.util.exception.NoValidStringException;
 
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * @author aksenov
+ * @version 1.0
+ *
+ * DataValidator checks if the data is appropriate
+ */
 
 public class DataValidator {
     private static final String DATA_REGEX;
@@ -14,7 +21,13 @@ public class DataValidator {
         NO_VALID_STRING_EXCEPTION = "file hasn't valid strings";
     }
 
-    public static List<String> getValidString(List<String> stringList) throws InvalidStringException {
+    /**
+     *
+     * @param stringList - list of strings that we want to check
+     * @return - list of strings that are fit the pattern DATA_REGEX
+     * @throws NoValidStringException - exception is thrown if the list hasn't valid strings
+     */
+    public static List<String> getValidString(List<String> stringList) throws NoValidStringException {
         if (stringList == null) {
             return null;
         }
@@ -28,7 +41,7 @@ public class DataValidator {
         }
 
         if (list.size() == 0) {
-            throw new InvalidStringException(NO_VALID_STRING_EXCEPTION);
+            throw new NoValidStringException(NO_VALID_STRING_EXCEPTION);
         }
 
         return list;

@@ -2,11 +2,17 @@ package by.epam.javatraning.aksenov.task1.util;
 
 import by.epam.javatraning.aksenov.task1.view.PrinterType;
 
-import java.util.Scanner;
-
+/**
+ * @author aksenov
+ * @version 1.0
+ */
 public class UserPrinter {
     private static final String INVITE_FOR_USER = "Select output type of information (Console/File): ";
 
+    /**
+     *
+     * @return PrinterType class object that user want to use
+     */
     public static PrinterType select() {
         PrinterType printerType = PrinterType.CONSOLE;
 

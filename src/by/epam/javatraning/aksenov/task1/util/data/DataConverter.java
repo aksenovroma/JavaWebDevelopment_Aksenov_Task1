@@ -4,7 +4,19 @@ import by.epam.javatraning.aksenov.task1.util.EquipmentType;
 
 import java.util.List;
 
+/**
+ * @author aksenov
+ * @version 1.0
+ *
+ * Class DataConvert converts valid string to EquipmentType -
+ * (special entity-class that storing information about equipments)
+ */
 public class DataConverter {
+    /**
+     *
+     * @param list - list of valid strings with information about equipments
+     * @return array of EquipmentType class objects
+     */
     public static EquipmentType[] strToEquipmentType(List<String> list) {
         if (list == null) {
             return null;

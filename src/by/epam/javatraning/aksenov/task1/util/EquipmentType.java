@@ -2,6 +2,13 @@ package by.epam.javatraning.aksenov.task1.util;
 
 import java.util.Objects;
 
+/**
+ * @author aksenov
+ * @version 1.0
+ *
+ * EquipmentType is special entity-class that storing information about equipments
+ */
+
 public class EquipmentType {
     private static final String NULL_POINTER_EXC = "argument can't be null";
     private static final String ILLEGAL_ARGUMENT_EXC = "argument can't be negative or null";
