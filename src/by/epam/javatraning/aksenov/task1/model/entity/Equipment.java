@@ -2,6 +2,13 @@ package by.epam.javatraning.aksenov.task1.model.entity;
 
 import java.util.Objects;
 
+/**
+ * @author aksenov
+ * @version 1.0
+ *
+ * Entity class for storing electrical information
+ */
+
 public class Equipment {
     private static final String ILLEGAL_ARGUMENT_EXC = "argument can't be negative or null";
 

@@ -3,7 +3,21 @@ package by.epam.javatraning.aksenov.task1.model.logic;
 import by.epam.javatraning.aksenov.task1.model.entity.Equipment;
 import by.epam.javatraning.aksenov.task1.model.entity.Home;
 
+/**
+ * @author aksenov
+ * @version 1.0
+ *
+ * Action-class works with information from class Home
+ * Searcher seeks information according to different characteristics
+ */
+
 public class Searcher {
+    /**
+     *
+     * @param home - Home class object
+     * @param key - the value we want to find equipment
+     * @return index of equipment with power == key
+     */
     public static int findIndexOfEquipmentByPower(Home home, double key) {
         if (home == null || home.getEquipment() == null) {
             return -1;
@@ -19,6 +33,12 @@ public class Searcher {
         return -1;
     }
 
+    /**
+     *
+     * @param home - Home class object
+     * @param key - the value we want to find equipment
+     * @return index of equipment with price == key
+     */
     public static int findIndexOfEquipmentByPrice(Home home, double key) {
         if (home == null || home.getEquipment() == null) {
             return -1;
@@ -34,6 +54,11 @@ public class Searcher {
         return -1;
     }
 
+    /**
+     *
+     * @param home - Home class object
+     * @return equipment with max price
+     */
     public static Equipment findMaxPriceEquipment(Home home) {
         if (home == null || home.getEquipment() == null) {
             return null;
@@ -55,6 +80,11 @@ public class Searcher {
         return maxPriceEquipment;
     }
 
+    /**
+     *
+     * @param home - Home class object
+     * @return equipment with min price
+     */
     public static Equipment findMinPriceEquipment(Home home) {
         if (home == null || home.getEquipment() == null) {
             return null;
@@ -76,6 +106,11 @@ public class Searcher {
         return minPriceEquipment;
     }
 
+    /**
+     *
+     * @param home - Home class object
+     * @return equipment with max power
+     */
     public static Equipment findMaxPowerEquipment(Home home) {
         if (home == null || home.getEquipment() == null) {
             return null;
@@ -97,6 +132,11 @@ public class Searcher {
         return maxPowerEquipment;
     }
 
+    /**
+     *
+     * @param home - Home class object
+     * @return equipment with min power
+     */
     public static Equipment findMinPowerEquipment(Home home) {
         if (home == null || home.getEquipment() == null) {
             return null;

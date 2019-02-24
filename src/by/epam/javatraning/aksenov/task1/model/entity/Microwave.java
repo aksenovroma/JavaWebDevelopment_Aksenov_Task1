@@ -2,6 +2,14 @@ package by.epam.javatraning.aksenov.task1.model.entity;
 
 import java.util.Objects;
 
+/**
+ * @author aksenov
+ * @version 1.0
+ *
+ * Entity class for storing information about microwave
+ * Class Microwave extends Equipment and realises new field - volume
+ */
+
 public class Microwave extends Equipment {
     private static final String ILLEGAL_ARGUMENT_EXC = "argument can't be negative or null";
 

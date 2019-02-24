@@ -2,6 +2,14 @@ package by.epam.javatraning.aksenov.task1.model.entity;
 
 import java.util.Objects;
 
+/**
+ * @author aksenov
+ * @version 1.0
+ *
+ * Entity class for storing information about television
+ * Class Television extends Equipment and realises new field - diagonal
+ */
+
 public class Television extends Equipment {
     private static final String ILLEGAL_ARGUMENT_EXC = "argument can't be negative or null";
 

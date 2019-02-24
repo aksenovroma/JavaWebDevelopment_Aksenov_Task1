@@ -17,6 +17,15 @@ import by.epam.javatraning.aksenov.task1.view.PrinterType;
 
 import java.util.List;
 
+/**
+ * Program implements the hierarchy of electrical equipment in the house.
+ *
+ * https://github.com/aksenovroma/JavaWebDevelopment_Aksenov_Task1
+ *
+ * @author aksenov
+ * @version 1.0
+ */
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("input file name: ");

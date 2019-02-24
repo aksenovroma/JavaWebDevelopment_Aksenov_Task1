@@ -3,7 +3,19 @@ package by.epam.javatraning.aksenov.task1.model.logic;
 import by.epam.javatraning.aksenov.task1.model.entity.Equipment;
 import by.epam.javatraning.aksenov.task1.model.entity.Home;
 
+/**
+ * @author aksenov
+ * @version 1.0
+ *
+ * Action-class works with information from class Home
+ * Sorter sorts information according to different characteristics
+ */
+
 public class Sorter {
+    /**
+     * Method sorts information by power
+     * @param home - Home class object
+     */
     public static void bubbleSortByPower(Home home) {
         if (home == null || home.getEquipment() == null) {
             return;
@@ -24,6 +36,11 @@ public class Sorter {
         }
     }
 
+    /**
+     *
+     * @param array - array that we want to change
+     * @param j - index of element that we wont replace forward
+     */
     public static void replace(Object[] array, int j) {
         Object temp = array[j];
         array[j] = array[j + 1];

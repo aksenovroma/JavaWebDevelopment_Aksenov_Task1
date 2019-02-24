@@ -2,6 +2,15 @@ package by.epam.javatraning.aksenov.task1.model.entity;
 
 import java.util.Arrays;
 
+/**
+ * @author aksenov
+ * @version 1.0
+ *
+ * Entity class for storing information about electrical equipment in the house
+ * Class storing data in equipment array
+ * Class Home has methods for adding and removing equipment from house
+ */
+
 public class Home {
     private static final String NULL_POINTER_EXC = "argument can't be null";
 
@@ -24,6 +33,10 @@ public class Home {
         this.equipment = equipment;
     }
 
+    /**
+     *
+     * @param e - equipment that we want to add to home
+     */
     public void add(Equipment e) {
         Equipment[] newEquipment = new Equipment[equipment.length + 1];
 
@@ -35,6 +48,10 @@ public class Home {
         equipment = newEquipment;
     }
 
+    /**
+     *
+     * @param e - equipment that we want to remove from home
+     */
     public void remove(Equipment e) {
         if (atHome(e)) {
             Equipment[] newEquipment = new Equipment[equipment.length - 1];
@@ -50,6 +67,11 @@ public class Home {
         }
     }
 
+    /**
+     *
+     * @param e - is equipment at home
+     * @return true if equipment is at home
+     */
     public boolean atHome(Equipment e) {
         if (e == null) {
             return false;
