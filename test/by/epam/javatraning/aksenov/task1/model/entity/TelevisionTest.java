@@ -1,5 +1,6 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
+import by.epam.javatraning.aksenov.task1.model.exception.NegativeArgumentException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -32,7 +33,7 @@ public class TelevisionTest {
         Assert.assertEquals(expected3, actual3);
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
+    @Test(expectedExceptions = NegativeArgumentException.class)
     public void setDiagonal() {
         double expected = 21;
 

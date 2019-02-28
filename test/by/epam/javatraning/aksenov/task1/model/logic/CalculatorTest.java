@@ -26,34 +26,50 @@ public class CalculatorTest {
     }
 
     @Test
-    public void sumPowerOfDevicesTest() {
-        double expected1 = 910;
-        double actual1 = Calculator.sumPowerOfDevices(home1);
+    public void testSumPowerOfDevices(){
+        double expected = 910;
+        double actual = Calculator.sumPowerOfDevices(home1);
 
-        double expected2 = 0;
-        double actual2 = Calculator.sumPowerOfDevices(home2);
+        Assert.assertEquals(expected, actual);
+    }
 
-        double expected3 = 0;
-        double actual3 = Calculator.sumPowerOfDevices(home3);
+    @Test
+    public void testSumPowerOfDevicesEmptyArr(){
+        double expected = 0;
+        double actual = Calculator.sumPowerOfDevices(home2);
 
-        Assert.assertEquals(expected1, actual1);
-        Assert.assertEquals(expected2, actual2);
-        Assert.assertEquals(expected3, actual3);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSumPowerOfDevicesNullPtr(){
+        double expected = 0;
+        double actual = Calculator.sumPowerOfDevices(home3);
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void sumPowerOfOnDevicesTest() {
-        double expected1 = 180;
-        double actual1 = Calculator.sumPowerOfOnDevices(home1);
+        double expected = 180;
+        double actual = Calculator.sumPowerOfOnDevices(home1);
 
-        double expected2 = 0;
-        double actual2 = Calculator.sumPowerOfOnDevices(home2);
+        Assert.assertEquals(expected, actual);
+    }
 
-        double expected3 = 0;
-        double actual3 = Calculator.sumPowerOfOnDevices(home3);
+    @Test
+    public void testSumPowerOfOnDevicesEmptyArr(){
+        double expected = 0;
+        double actual = Calculator.sumPowerOfOnDevices(home2);
 
-        Assert.assertEquals(expected1, actual1);
-        Assert.assertEquals(expected2, actual2);
-        Assert.assertEquals(expected3, actual3);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSumPowerOfOnDevicesNullPtr(){
+        double expected = 0;
+        double actual = Calculator.sumPowerOfOnDevices(home3);
+
+        Assert.assertEquals(expected, actual);
     }
 }

@@ -23,7 +23,7 @@ public class Sorter {
 
         Equipment[] equipment = home.getEquipment();
 
-        if (equipment == null || equipment.length == 0) {
+        if (equipment.length == 0) {
             return;
         }
 
@@ -42,6 +42,10 @@ public class Sorter {
      * @param j - index of element that we wont replace forward
      */
     public static void replace(Object[] array, int j) {
+        if (array == null || j < 0 || j >= array.length -1){
+            return;
+        }
+
         Object temp = array[j];
         array[j] = array[j + 1];
         array[j + 1] = temp;

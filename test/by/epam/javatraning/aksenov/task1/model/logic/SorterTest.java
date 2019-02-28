@@ -33,32 +33,66 @@ public class SorterTest {
     }
 
     @Test
-    public void bubbleSortByPowerTest() {
-        Home expected1 = home2;
+    public void testBubbleSortByPower() {
+        Home expected = home2;
         Sorter.bubbleSortByPower(home1);
-        Home actual1 = home1;
+        Home actual = home1;
 
-
-        Home expected2 = home3;
-        Sorter.bubbleSortByPower(home3);
-        Home actual2 = home3;
-
-        Home expected3 = home4;
-        Sorter.bubbleSortByPower(home4);
-        Home actual3 = home4;
-
-        Assert.assertEquals(expected1, actual1);
-        Assert.assertEquals(expected2, actual2);
-        Assert.assertEquals(expected3, actual3);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void replaceTest() {
-        Equipment[] expected1 = {television, microwave};
-        Equipment[] actual1 = {microwave, television};
-        Sorter.replace(actual1, 0);
+    public void testBubbleSortByPowerNullPtr(){
+        Home expected = home4;
+        Sorter.bubbleSortByPower(home4);
+        Home actual = home4;
 
-        Assert.assertEquals(expected1, actual1);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testBubbleSortByPowerEmptyArr(){
+        Home expected = home3;
+        Sorter.bubbleSortByPower(home3);
+        Home actual = home3;
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testReplace() {
+        Equipment[] expected = {television, microwave};
+        Equipment[] actual = {microwave, television};
+        Sorter.replace(actual, 0);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testReplaceNullArr(){
+        Equipment[] expected = null;
+        Equipment[] actual = null;
+        Sorter.replace(actual, 0);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testReplaceNegativeIndex(){
+        Equipment[] expected = {television, microwave};
+        Equipment[] actual = {television, microwave};
+        Sorter.replace(actual, -1);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testReplaceOutOfBoundArr(){
+        Equipment[] expected = {television, microwave};
+        Equipment[] actual = {television, microwave};
+        Sorter.replace(actual, 3);
+
+        Assert.assertEquals(expected, actual);
     }
 
 }

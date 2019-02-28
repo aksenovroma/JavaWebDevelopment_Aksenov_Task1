@@ -1,5 +1,6 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
+import by.epam.javatraning.aksenov.task1.model.exception.NegativeArgumentException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -57,7 +58,7 @@ public class EquipmentTest {
 
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
+    @Test(expectedExceptions = NegativeArgumentException.class)
     public void setPrice() {
         double expected = 100;
 
@@ -70,7 +71,7 @@ public class EquipmentTest {
         equipment.setPrice(-20);
     }
 
-    @Test(expectedExceptions = IllegalArgumentException.class)
+    @Test(expectedExceptions = NegativeArgumentException.class)
     public void setPower() {
         double expected = 100;
 

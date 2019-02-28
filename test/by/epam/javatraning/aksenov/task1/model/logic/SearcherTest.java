@@ -30,98 +30,156 @@ public class SearcherTest {
     }
 
     @Test
-    public void findIndexOfEquipmentByPowerTest() {
-        int expected1 = 2;
-        int actual1 = Searcher.findIndexOfEquipmentByPower(home1, 120);
+    public void testFindIndexOfEquipmentByPower() {
+        int expected = 2;
+        int actual = Searcher.findIndexOfEquipmentByPower(home1, 120);
 
-        int expected2 = -1;
-        int actual2 = Searcher.findIndexOfEquipmentByPower(home2, 120);
-
-        int expected3 = -1;
-        int actual3 = Searcher.findIndexOfEquipmentByPower(home3, 120);
-
-        Assert.assertEquals(expected1, actual1);
-        Assert.assertEquals(expected2, actual2);
-        Assert.assertEquals(expected3, actual3);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void findIndexOfEquipmentByPriceTest() {
-        int expected1 = 1;
-        int actual1 = Searcher.findIndexOfEquipmentByPrice(home1, 560);
+    public void testFindIndexOfEquipmentByPowerEmptyArr(){
+        int expected = -1;
+        int actual = Searcher.findIndexOfEquipmentByPower(home2, 120);
 
-        int expected2 = -1;
-        int actual2 = Searcher.findIndexOfEquipmentByPower(home2, 560);
-
-        int expected3 = -1;
-        int actual3 = Searcher.findIndexOfEquipmentByPower(home3, 560);
-
-        Assert.assertEquals(expected1, actual1);
-        Assert.assertEquals(expected2, actual2);
-        Assert.assertEquals(expected3, actual3);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void findMaxPriceEquipmentTest() {
-        Equipment expected1 = television;
-        Equipment actual1 = Searcher.findMaxPriceEquipment(home1);
+    public void testFindIndexOfEquipmentByPowerNullPtr(){
+        int expected = -1;
+        int actual = Searcher.findIndexOfEquipmentByPower(home3, 120);
 
-        Equipment expected2 = null;
-        Equipment actual2 = Searcher.findMaxPriceEquipment(home2);
+        Assert.assertEquals(expected, actual);
+    }
 
-        Equipment expected3 = null;
-        Equipment actual3 = Searcher.findMaxPriceEquipment(home3);
 
-        Assert.assertEquals(expected1, actual1);
-        Assert.assertEquals(expected2, actual2);
-        Assert.assertEquals(expected3, actual3);
+
+    @Test
+    public void testFindIndexOfEquipmentByPrice() {
+        int expected = 1;
+        int actual = Searcher.findIndexOfEquipmentByPrice(home1, 560);
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void findMinPriceEquipmentTest() {
-        Equipment expected1 = lamp2;
-        Equipment actual1 = Searcher.findMinPriceEquipment(home1);
+    public void testFindIndexOfEquipmentByPriceEmptyArr(){
+        int expected = -1;
+        int actual = Searcher.findIndexOfEquipmentByPower(home2, 560);
 
-        Equipment expected2 = null;
-        Equipment actual2 = Searcher.findMinPriceEquipment(home2);
-
-        Equipment expected3 = null;
-        Equipment actual3 = Searcher.findMinPriceEquipment(home3);
-
-        Assert.assertEquals(expected1, actual1);
-        Assert.assertEquals(expected2, actual2);
-        Assert.assertEquals(expected3, actual3);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void findMaxPowerEquipmentTest() {
+    public void testFindIndexOfEquipmentByPriceNullPtr(){
+        int expected = -1;
+        int actual = Searcher.findIndexOfEquipmentByPower(home3, 560);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+
+
+    @Test
+    public void testFindMaxPriceEquipment() {
+        Equipment expected = television;
+        Equipment actual = Searcher.findMaxPriceEquipment(home1);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testFindMaxPriceEquipmentEmptyArr(){
+        Equipment expected = null;
+        Equipment actual = Searcher.findMaxPriceEquipment(home2);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testFindMaxPriceEquipmentNullPtr(){
+        Equipment expected = null;
+        Equipment actual = Searcher.findMaxPriceEquipment(home3);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+
+
+    @Test
+    public void testFindMinPriceEquipment() {
+        Equipment expected = lamp2;
+        Equipment actual = Searcher.findMinPriceEquipment(home1);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testFindMinPriceEquipmentEmptyArr(){
+        Equipment expected = null;
+        Equipment actual = Searcher.findMinPriceEquipment(home2);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testFindMinPriceEquipmentNullPtr(){
+        Equipment expected = null;
+        Equipment actual = Searcher.findMinPriceEquipment(home3);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+
+
+    @Test
+    public void testFindMaxPowerEquipment() {
         Equipment expected1 = microwave;
         Equipment actual1 = Searcher.findMaxPowerEquipment(home1);
 
-        Equipment expected2 = null;
-        Equipment actual2 = Searcher.findMaxPowerEquipment(home2);
-
-        Equipment expected3 = null;
-        Equipment actual3 = Searcher.findMaxPowerEquipment(home3);
-
         Assert.assertEquals(expected1, actual1);
-        Assert.assertEquals(expected2, actual2);
-        Assert.assertEquals(expected3, actual3);
     }
 
     @Test
-    public void findMinPowerEquipmentTest() {
-        Equipment expected1 = lamp1;
-        Equipment actual1 = Searcher.findMinPowerEquipment(home1);
+    public void testFindMaxPowerEquipmentEmptyArr(){
+        Equipment expected = null;
+        Equipment actual = Searcher.findMaxPowerEquipment(home2);
 
-        Equipment expected2 = null;
-        Equipment actual2 = Searcher.findMinPowerEquipment(home2);
+        Assert.assertEquals(expected, actual);
+    }
 
-        Equipment expected3 = null;
-        Equipment actual3 = Searcher.findMinPowerEquipment(home3);
+    @Test
+    public void testFindMaxPowerEquipmentNullPtr(){
+        Equipment expected = null;
+        Equipment actual = Searcher.findMaxPowerEquipment(home3);
 
-        Assert.assertEquals(expected1, actual1);
-        Assert.assertEquals(expected2, actual2);
-        Assert.assertEquals(expected3, actual3);
+        Assert.assertEquals(expected, actual);
+    }
+
+
+
+    @Test
+    public void testFindMinPowerEquipment() {
+        Equipment expected = lamp1;
+        Equipment actual = Searcher.findMinPowerEquipment(home1);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testFindMinPowerEquipmentEmptyArr(){
+        Equipment expected = null;
+        Equipment actual = Searcher.findMinPowerEquipment(home2);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testFindMinPowerEquipmentNullPtr(){
+        Equipment expected = null;
+        Equipment actual = Searcher.findMinPowerEquipment(home3);
+
+        Assert.assertEquals(expected, actual);
     }
 }

@@ -1,5 +1,6 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
+import by.epam.javatraning.aksenov.task1.model.exception.NullArgumentException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -41,7 +42,7 @@ public class HomeTest {
         Assert.assertEquals(expected2, actual2);
     }
 
-    @Test(expectedExceptions = NullPointerException.class)
+    @Test(expectedExceptions = NullArgumentException.class)
     public void setEquipmentTest() {
         home1.setEquipment(null);
     }
