@@ -1,5 +1,8 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
+import by.epam.javatraning.aksenov.task1.model.exception.NegativeArgumentException;
+import by.epam.javatraning.aksenov.task1.model.exception.NullArgumentException;
+
 import java.util.Objects;
 
 /**
@@ -42,7 +45,7 @@ public class Television extends Equipment {
 
     public void setDiagonal(double diagonal) {
         if (diagonal < 0) {
-            throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
+            throw new NegativeArgumentException(ILLEGAL_ARGUMENT_EXC);
         }
         this.diagonal = diagonal;
     }

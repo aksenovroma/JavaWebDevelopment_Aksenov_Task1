@@ -1,5 +1,7 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
+import by.epam.javatraning.aksenov.task1.model.exception.NegativeArgumentException;
+
 import java.util.Objects;
 
 /**
@@ -43,7 +45,7 @@ public class Equipment {
 
     public void setPrice(double price) {
         if (price < 0) {
-            throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
+            throw new NegativeArgumentException(ILLEGAL_ARGUMENT_EXC);
         }
         this.price = price;
     }
@@ -54,7 +56,7 @@ public class Equipment {
 
     public void setPower(double power) {
         if (power < 0) {
-            throw new IllegalArgumentException(ILLEGAL_ARGUMENT_EXC);
+            throw new NegativeArgumentException(ILLEGAL_ARGUMENT_EXC);
         }
         this.power = power;
     }

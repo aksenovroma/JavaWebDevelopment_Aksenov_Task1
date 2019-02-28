@@ -1,5 +1,7 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
+import by.epam.javatraning.aksenov.task1.model.exception.NullArgumentException;
+
 import java.util.Arrays;
 
 /**
@@ -28,7 +30,7 @@ public class Home {
 
     public void setEquipment(Equipment[] equipment) {
         if (equipment == null) {
-            throw new NullPointerException(NULL_POINTER_EXC);
+            throw new NullArgumentException(NULL_POINTER_EXC);
         }
         this.equipment = equipment;
     }
