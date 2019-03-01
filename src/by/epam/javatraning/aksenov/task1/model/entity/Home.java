@@ -40,6 +40,10 @@ public class Home {
      * @param e - equipment that we want to add to home
      */
     public void add(Equipment e) {
+        if (e == null){
+            return;
+        }
+
         Equipment[] newEquipment = new Equipment[equipment.length + 1];
 
         for (int i = 0; i < equipment.length; i++) {
@@ -55,6 +59,10 @@ public class Home {
      * @param e - equipment that we want to remove from home
      */
     public void remove(Equipment e) {
+        if (e == null){
+            return;
+        }
+
         if (atHome(e)) {
             Equipment[] newEquipment = new Equipment[equipment.length - 1];
 

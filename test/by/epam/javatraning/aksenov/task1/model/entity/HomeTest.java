@@ -28,55 +28,93 @@ public class HomeTest {
     }
 
     @Test
-    public void constructorHomeTest() {
-        Home testHome1 = new Home(equipment1);
-        Home testHome2 = new Home(null);
+    public void testConstructorHome(){
+        Home testHome = new Home(equipment1);
 
-        Equipment[] expected1 = equipment1;
-        Equipment[] actual1 = testHome1.getEquipment();
+        Equipment[] expected = equipment1;
+        Equipment[] actual = testHome.getEquipment();
 
-        Equipment[] expected2 = null;
-        Equipment[] actual2 = testHome2.getEquipment();
+        Assert.assertEquals(expected, actual);
+    }
 
-        Assert.assertEquals(expected1, actual1);
-        Assert.assertEquals(expected2, actual2);
+    @Test
+    public void testConstructorHomeNullArr(){
+        Home testHome = new Home(null);
+
+        Equipment[] expected = null;
+        Equipment[] actual = testHome.getEquipment();
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test(expectedExceptions = NullArgumentException.class)
-    public void setEquipmentTest() {
+    public void testSetEquipment() {
         home1.setEquipment(null);
     }
 
     @Test
-    public void addTest() {
-        Home expected1 = new Home(equipment2);
-        Home actual1 = new Home(equipment1);
+    public void testAdd() {
+        Home expected = new Home(equipment2);
+        Home actual = new Home(equipment1);
 
-        actual1.add(lamp2);
+        actual.add(lamp2);
 
-        Assert.assertEquals(expected1, actual1);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void atHomeTest() {
-        boolean actual1 = home1.atHome(lamp1);
-        boolean actual2 = home1.atHome(lamp2);
-        boolean actual3 = home1.atHome(null);
+    public void testAddNullPtr(){
+        Home expected = new Home(equipment2);
+        Home actual = new Home(equipment2);
 
-        Assert.assertTrue(actual1);
-        Assert.assertFalse(actual2);
-        Assert.assertFalse(actual3);
+        actual.add(null);
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void removeTest() {
-        Home expected1 = new Home(equipment1);
-        Home actual1 = new Home(equipment2);
+    public void testAtHome() {
+        boolean actual = home1.atHome(lamp1);
 
-        actual1.remove(lamp2);
+        Assert.assertTrue(actual);
+    }
 
-        Assert.assertEquals(expected1, actual1);
+    @Test
+    public void testAtHomeNullPtr() {
+        boolean actual = home1.atHome(null);
 
+        Assert.assertFalse(actual);
+    }
+
+    @Test
+    public void testAtHomeFalse() {
+        boolean actual = home1.atHome(lamp2);
+
+        Assert.assertFalse(actual);
+    }
+
+    @Test
+    public void testRemove() {
+        Home expected = new Home(equipment1);
+        Home actual = new Home(equipment2);
+
+        actual.remove(lamp2);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testRemoveNullPtr() {
+        Home expected = new Home(equipment2);
+        Home actual = new Home(equipment2);
+
+        actual.remove(null);
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testRemoveNotAtHome() {
         Home expected2 = new Home(equipment1);
         Home actual2 = new Home(equipment2);
 
