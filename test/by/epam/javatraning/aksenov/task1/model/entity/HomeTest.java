@@ -28,7 +28,7 @@ public class HomeTest {
     }
 
     @Test
-    public void testConstructorHome(){
+    public void testConstructorHome() {
         Home testHome = new Home(equipment1);
 
         Equipment[] expected = equipment1;
@@ -38,7 +38,7 @@ public class HomeTest {
     }
 
     @Test
-    public void testConstructorHomeNullArr(){
+    public void testConstructorHomeNullArr() {
         Home testHome = new Home(null);
 
         Equipment[] expected = null;
@@ -63,7 +63,7 @@ public class HomeTest {
     }
 
     @Test
-    public void testAddNullPtr(){
+    public void testAddNullPtr() {
         Home expected = new Home(equipment2);
         Home actual = new Home(equipment2);
 

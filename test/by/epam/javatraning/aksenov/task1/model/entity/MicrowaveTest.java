@@ -14,23 +14,33 @@ public class MicrowaveTest {
     }
 
     @Test
-    public void constructorMicrowaveTest() {
-        Microwave lamp1 = new Microwave(120, 60, true, 10);
-        Microwave lamp2 = new Microwave(120, 60, true, -10);
-        Microwave lamp3 = new Microwave(lamp1, 14);
+    public void testConstructorMicrowave() {
+        Microwave microwave = new Microwave(120, 60, true, 10);
 
-        double expected1 = 10;
-        double actual1 = lamp1.getVolume();
+        double expected = 10;
+        double actual = microwave.getVolume();
 
-        double expected2 = 0;
-        double actual2 = lamp2.getVolume();
+        Assert.assertEquals(expected, actual);
+    }
 
-        double expected3 = 14;
-        double actual3 = lamp3.getVolume();
+    @Test
+    public void testConstructorMicrowaveNegativeArg() {
+        Microwave microwave = new Microwave(120, 60, true, -10);
 
-        Assert.assertEquals(expected1, actual1);
-        Assert.assertEquals(expected2, actual2);
-        Assert.assertEquals(expected3, actual3);
+        double expected = 0;
+        double actual = microwave.getVolume();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testConstructorMicrowaveCopier() {
+        Microwave microwaveCopy = new Microwave(microwave, 14);
+
+        double expected = 14;
+        double actual = microwaveCopy.getVolume();
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test(expectedExceptions = NegativeArgumentException.class)

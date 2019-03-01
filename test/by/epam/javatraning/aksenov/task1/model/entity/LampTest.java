@@ -14,24 +14,35 @@ public class LampTest {
     }
 
     @Test
-    public void constructorLampTest() {
-        Lamp lamp1 = new Lamp(120, 60, true, 1);
-        Lamp lamp2 = new Lamp(120, 60, true, -1);
-        Lamp lamp3 = new Lamp(lamp1, 4);
+    public void testConstructorLamp() {
+        Lamp lamp = new Lamp(120, 60, true, 1);
 
-        int expected1 = 1;
-        int actual1 = lamp1.getLightbulb();
+        int expected = 1;
+        int actual = lamp.getLightbulb();
 
-        int expected2 = 0;
-        int actual2 = lamp2.getLightbulb();
-
-        int expected3 = 4;
-        int actual3 = lamp3.getLightbulb();
-
-        Assert.assertEquals(expected1, actual1);
-        Assert.assertEquals(expected2, actual2);
-        Assert.assertEquals(expected3, actual3);
+        Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void testConstructorLampNegativeArg(){
+        Lamp lamp = new Lamp(120, 60, true, -1);
+
+        int expected = 0;
+        int actual = lamp.getLightbulb();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testConstructorLampCopier(){
+        Lamp lampCopy = new Lamp(lamp, 4);
+
+        int expected = 4;
+        int actual = lampCopy.getLightbulb();
+
+        Assert.assertEquals(expected, actual);
+    }
+
 
     @Test(expectedExceptions = NegativeArgumentException.class)
     public void setLightbulb() {

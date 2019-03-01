@@ -14,23 +14,33 @@ public class TelevisionTest {
     }
 
     @Test
-    public void constructorTelevisionTest() {
-        Television lamp1 = new Television(120, 60, true, 19);
-        Television lamp2 = new Television(120, 60, true, -19);
-        Television lamp3 = new Television(lamp1, 22);
+    public void testConstructorTelevision() {
+        Television television = new Television(120, 60, true, 19);
 
         double expected1 = 19;
-        double actual1 = lamp1.getDiagonal();
-
-        double expected2 = 0;
-        double actual2 = lamp2.getDiagonal();
-
-        double expected3 = 22;
-        double actual3 = lamp3.getDiagonal();
+        double actual1 = television.getDiagonal();
 
         Assert.assertEquals(expected1, actual1);
-        Assert.assertEquals(expected2, actual2);
-        Assert.assertEquals(expected3, actual3);
+    }
+
+    @Test
+    public void testConstructorTelevisionNegativeArg() {
+        Television television = new Television(120, 60, true, -19);
+
+        double expected = 0;
+        double actual = television.getDiagonal();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testConstructorTelevisionCopier() {
+        Television televisionCopy = new Television(television, 22);
+
+        double expected = 22;
+        double actual = televisionCopy.getDiagonal();
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test(expectedExceptions = NegativeArgumentException.class)
