@@ -28,11 +28,10 @@ public class DataReader {
         }
 
         List<String> stringList = new ArrayList<>(0);
-        FileInputStream fstream = null;
 
-        try {
-            fstream = new FileInputStream(filename);
-            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+        try (FileInputStream fstream = new FileInputStream(filename);
+             BufferedReader br = new BufferedReader(new InputStreamReader(fstream))){
+
             String strLine;
 
             while ((strLine = br.readLine()) != null) {
@@ -44,14 +43,7 @@ public class DataReader {
             }
 
         } catch (IOException e) {
-            System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (fstream != null)
-                    fstream.close();
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
+            e.printStackTrace();
         }
 
         return stringList;
