@@ -90,7 +90,12 @@ public class Equipment {
 
     @Override
     public int hashCode() {
-        return Objects.hash(price, power, selector);
+        final int PRIME = 31;
+        int result = 1;
+        result = PRIME * result + new Double(price).hashCode();
+        result = PRIME * result + new Double(power).hashCode();
+        result = PRIME * result + (selector ? PRIME : 7);
+        return result;
     }
 
     @Override
@@ -99,4 +104,5 @@ public class Equipment {
                 ", power=" + power +
                 ", selector=" + selector;
     }
+
 }

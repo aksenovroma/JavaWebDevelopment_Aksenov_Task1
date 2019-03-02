@@ -176,6 +176,33 @@ public class HomeTest {
     }
 
     @Test
+    public void testHashCode() {
+        Home home2 = new Home(equipment1);
+
+        boolean actual = (home1.hashCode() == home2.hashCode());
+
+        assertTrue(actual);
+    }
+
+    @Test
+    public void testHashCodeWrong() {
+        Home home2 = new Home(equipment2);
+
+        boolean actual = (home1.hashCode() == home2.hashCode());
+
+        assertFalse(actual);
+    }
+
+    @Test
+    public void testHashCodeSameObject() {
+        Home home2 = home1;
+
+        boolean actual = (home1.hashCode() == home2.hashCode());
+
+        assertTrue(actual);
+    }
+
+    @Test
     public void testToString() {
         String expected = "Home{equipment=[Lamp{price=120.5, power=60.0, selector=true, lightbulb=2}, " +
                 "Microwave{price=560.0, power=650.0, selector=false, volume=15.0}, " +

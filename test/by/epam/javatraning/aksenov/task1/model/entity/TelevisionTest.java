@@ -132,6 +132,33 @@ public class TelevisionTest {
     }
 
     @Test
+    public void testHashCode() {
+        Television television1 = new Television(120.5, 60, true, 20);
+
+        boolean actual = (television.hashCode() == television1.hashCode());
+
+        assertTrue(actual);
+    }
+
+    @Test
+    public void testHashCodeDifferentDiagonal() {
+        Television television1 = new Television(120.5, 60, true, 20.1);
+
+        boolean actual = (television.hashCode() == television1.hashCode());
+
+        assertFalse(actual);
+    }
+
+    @Test
+    public void testHashCodeSameObject() {
+        Television television1 = television;
+
+        boolean actual = (television.hashCode() == television1.hashCode());
+
+        assertTrue(actual);
+    }
+
+    @Test
     public void testToString() {
         String expected = "Television{price=120.5, power=60.0, selector=true, diagonal=20.0}";
         String actual = television.toString();

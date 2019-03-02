@@ -61,7 +61,11 @@ public class Television extends Equipment {
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), diagonal);
+        final int PRIME = 31;
+        int result = super.hashCode();
+        result = PRIME * result + new Double(diagonal).hashCode();
+
+        return result;
     }
 
     @Override

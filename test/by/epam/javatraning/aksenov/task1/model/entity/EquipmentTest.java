@@ -171,11 +171,57 @@ public class EquipmentTest {
     }
 
     @Test
+    public void testHashCode() {
+        Equipment equipment1 = new Equipment(200.5, 650.9, false);
+
+        boolean actual = (equipment.hashCode() == equipment1.hashCode());
+
+        assertTrue(actual);
+    }
+
+    @Test
+    public void testHashCodeDifferentPrice() {
+        Equipment equipment1 = new Equipment(200.4, 650.9, false);
+
+        boolean actual = (equipment.hashCode() == equipment1.hashCode());
+
+        assertFalse(actual);
+    }
+
+    @Test
+    public void testHashCodeDifferentPower() {
+        Equipment equipment1 = new Equipment(200.5, 650.0, false);
+
+        boolean actual = (equipment.hashCode() == equipment1.hashCode());
+
+        assertFalse(actual);
+    }
+
+    @Test
+    public void testHashCodeDifferentSelector() {
+        Equipment equipment1 = new Equipment(200.5, 650.9, true);
+
+        boolean actual = (equipment.hashCode() == equipment1.hashCode());
+
+        assertFalse(actual);
+    }
+
+    @Test
+    public void testHashCodeSameObject() {
+        Equipment equipment1 = equipment;
+
+        boolean actual = (equipment.hashCode() == equipment1.hashCode());
+
+        assertTrue(actual);
+    }
+
+    @Test
     public void testToString() {
         String expected = "price=200.5, power=650.9, selector=false";
         String actual = equipment.toString();
 
         assertEquals(expected, actual);
     }
+
 
 }

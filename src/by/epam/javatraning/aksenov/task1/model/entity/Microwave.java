@@ -61,7 +61,11 @@ public class Microwave extends Equipment {
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), volume);
+        final int PRIME = 31;
+        int result = super.hashCode();
+        result = PRIME * result + new Double(volume).hashCode();
+
+        return result;
     }
 
     @Override

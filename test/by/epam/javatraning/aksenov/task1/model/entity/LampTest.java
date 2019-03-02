@@ -132,6 +132,33 @@ public class LampTest {
     }
 
     @Test
+    public void testHashCode() {
+        Lamp lamp1 = new Lamp(120.5, 60, true, 2);
+
+        boolean actual = (lamp.hashCode() == lamp1.hashCode());
+
+        assertTrue(actual);
+    }
+
+    @Test
+    public void testHashCodeDifferentLightbulb() {
+        Lamp lamp1 = new Lamp(120.5, 60, true, 3);
+
+        boolean actual = (lamp.hashCode() == lamp1.hashCode());
+
+        assertFalse(actual);
+    }
+
+    @Test
+    public void testHashCodeSameObject() {
+        Lamp lamp1 = lamp;
+
+        boolean actual = (lamp.hashCode() == lamp1.hashCode());
+
+        assertTrue(actual);
+    }
+
+    @Test
     public void testToString() {
         String expected = "Lamp{price=120.5, power=60.0, selector=true, lightbulb=2}";
         String actual = lamp.toString();

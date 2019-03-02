@@ -52,16 +52,27 @@ public class Lamp extends Equipment {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
         Lamp lamp = (Lamp) o;
+
         return lightbulb == lamp.lightbulb;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), lightbulb);
+        final int PRIME = 31;
+        int result = super.hashCode();
+        result = PRIME * result + lightbulb;
+
+        return result;
     }
 
     @Override

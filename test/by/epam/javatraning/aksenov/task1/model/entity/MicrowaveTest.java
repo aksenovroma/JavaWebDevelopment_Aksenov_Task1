@@ -133,6 +133,33 @@ public class MicrowaveTest {
     }
 
     @Test
+    public void testHashCode() {
+        Microwave microwave1 = new Microwave(120.5, 60, true, 10);
+
+        boolean actual = (microwave.hashCode() == microwave1.hashCode());
+
+        assertTrue(actual);
+    }
+
+    @Test
+    public void testHashCodeDifferentVolume() {
+        Microwave microwave1 = new Microwave(120.5, 60, true, 13);
+
+        boolean actual = (microwave.hashCode() == microwave1.hashCode());
+
+        assertFalse(actual);
+    }
+
+    @Test
+    public void testHashCodeSameObject() {
+        Microwave microwave1 = microwave;
+
+        boolean actual = (microwave.hashCode() == microwave1.hashCode());
+
+        assertTrue(actual);
+    }
+
+    @Test
     public void testToString() {
         String expected = "Microwave{price=120.5, power=60.0, selector=true, volume=10.0}";
         String actual = microwave.toString();
