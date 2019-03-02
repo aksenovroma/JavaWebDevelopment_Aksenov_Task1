@@ -1,7 +1,7 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
 import by.epam.javatraning.aksenov.task1.model.exception.HomeEquipmentWrongException;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
@@ -12,14 +12,12 @@ public class HomeTest {
     private Equipment[] equipment2;
     private Lamp lamp1;
     private Lamp lamp2;
-    private Microwave microwave;
-    private Television television;
 
-    @BeforeTest
+    @BeforeMethod
     public void setHome() {
+        Microwave microwave = new Microwave(560, 650, false, 15);
+        Television television = new Television(890.5, 120, true, 21);
         lamp1 = new Lamp(120.5, 60, true, 2);
-        microwave = new Microwave(560, 650, false, 15);
-        television = new Television(890.5, 120, true, 21);
         lamp2 = new Lamp(110, 80, false, 3);
 
         equipment1 = new Equipment[]{lamp1, microwave, television};
@@ -126,11 +124,64 @@ public class HomeTest {
 
     @Test
     public void testRemoveNotAtHome() {
-        Home expected2 = new Home(equipment1);
-        Home actual2 = new Home(equipment2);
+        Home expected = new Home(equipment1);
+        Home actual = new Home(equipment2);
 
-        actual2.remove(lamp2);
+        actual.remove(lamp2);
 
-        assertEquals(expected2, actual2);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testEquals() {
+        Home home2 = new Home(equipment1);
+
+        boolean actual = home1.equals(home2);
+
+        assertTrue(actual);
+    }
+
+    @Test
+    public void testEqualsDifferentEquipment() {
+        Home home2 = new Home(equipment2);
+
+        boolean actual = home1.equals(home2);
+
+        assertFalse(actual);
+    }
+
+    @Test
+    public void testEqualsSameObject() {
+        boolean actual = home1.equals(home1);
+
+        assertTrue(actual);
+    }
+
+    @Test
+    public void testEqualsNullPtr() {
+        Home home2 = null;
+
+        boolean actual = home1.equals(home2);
+
+        assertFalse(actual);
+    }
+
+    @Test
+    public void testEqualsOtherClass() {
+        Object o = new Object();
+
+        boolean actual = home1.equals(o);
+
+        assertFalse(actual);
+    }
+
+    @Test
+    public void testToString() {
+        String expected = "Home{equipment=[Lamp{price=120.5, power=60.0, selector=true, lightbulb=2}, " +
+                "Microwave{price=560.0, power=650.0, selector=false, volume=15.0}, " +
+                "Television{price=890.5, power=120.0, selector=true, diagonal=21.0}]}";
+        String actual = home1.toString();
+
+        assertEquals(expected, actual);
     }
 }

@@ -2,7 +2,7 @@ package by.epam.javatraning.aksenov.task1.model.entity;
 
 import by.epam.javatraning.aksenov.task1.model.exception.EquipmentPowerWrongException;
 import by.epam.javatraning.aksenov.task1.model.exception.EquipmentPriceWrongException;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
@@ -10,7 +10,7 @@ import static org.testng.Assert.*;
 public class EquipmentTest {
     private Equipment equipment;
 
-    @BeforeTest
+    @BeforeMethod
     public void setEquipment() {
         equipment = new Equipment(200.5, 650.9, false);
     }
@@ -61,15 +61,15 @@ public class EquipmentTest {
 
     @Test
     public void testConstructorNullArr() {
-        Equipment equipment4 = new Equipment(null);
+        Equipment equipment = new Equipment(null);
 
         double expected1 = 0;
-        double actual1 = equipment4.getPrice();
+        double actual1 = equipment.getPrice();
 
         double expected2 = 0;
-        double actual2 = equipment4.getPower();
+        double actual2 = equipment.getPower();
 
-        boolean actual3 = equipment4.isSelector();
+        boolean actual3 = equipment.isSelector();
 
         assertEquals(expected1, actual1);
         assertEquals(expected2, actual2);
@@ -92,7 +92,6 @@ public class EquipmentTest {
         equipment.setPrice(-20);
     }
 
-
     @Test
     public void setPower() throws EquipmentPowerWrongException {
         double expected = 100;
@@ -107,6 +106,76 @@ public class EquipmentTest {
     @Test(expectedExceptions = EquipmentPowerWrongException.class)
     public void testSetPowerWrong() throws EquipmentPowerWrongException {
         equipment.setPower(-100);
+    }
+
+    @Test
+    public void testEquals() {
+        Equipment equipment1 = equipment;
+        Equipment equipment2 = equipment;
+
+        boolean actual = equipment1.equals(equipment2);
+
+        assertTrue(actual);
+    }
+
+    @Test
+    public void testEqualsDifferentPrice() {
+        Equipment equipment1 = new Equipment(100, 230, true);
+
+        boolean actual = equipment.equals(equipment1);
+
+        assertFalse(actual);
+    }
+
+    @Test
+    public void testEqualsDifferentPower() {
+        Equipment equipment1 = new Equipment(120, 200, true);
+
+        boolean actual = equipment.equals(equipment1);
+
+        assertFalse(actual);
+    }
+
+    @Test
+    public void testEqualsDifferentSelector() {
+        Equipment equipment1 = new Equipment(120, 230, false);
+
+        boolean actual = equipment.equals(equipment1);
+
+        assertFalse(actual);
+    }
+
+    @Test
+    public void testEqualsSameObject() {
+        boolean actual = equipment.equals(equipment);
+
+        assertTrue(actual);
+    }
+
+    @Test
+    public void testEqualsNullPtr() {
+        Equipment equipment1 = null;
+
+        boolean actual = equipment.equals(equipment1);
+
+        assertFalse(actual);
+    }
+
+    @Test
+    public void testEqualsOtherClass() {
+        Object o = new Object();
+
+        boolean actual = equipment.equals(o);
+
+        assertFalse(actual);
+    }
+
+    @Test
+    public void testToString() {
+        String expected = "price=200.5, power=650.9, selector=false";
+        String actual = equipment.toString();
+
+        assertEquals(expected, actual);
     }
 
 }

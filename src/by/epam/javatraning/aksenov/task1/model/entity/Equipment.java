@@ -73,9 +73,16 @@ public class Equipment {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
         Equipment equipment = (Equipment) o;
+
         return Double.compare(equipment.price, price) == 0 &&
                 Double.compare(equipment.power, power) == 0 &&
                 selector == equipment.selector;
