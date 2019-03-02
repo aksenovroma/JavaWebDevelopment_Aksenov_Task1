@@ -1,7 +1,7 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
-import by.epam.javatraning.aksenov.task1.model.exception.NegativeArgumentException;
-import by.epam.javatraning.aksenov.task1.model.exception.NullArgumentException;
+import by.epam.javatraning.aksenov.task1.model.exception.MicrowaveVolumeWrongException;
+import by.epam.javatraning.aksenov.task1.model.exception.WrongArgumentException;
 
 import java.util.Objects;
 
@@ -34,7 +34,7 @@ public class Microwave extends Equipment {
 
     public Microwave(Equipment equipment, double volume) {
         super(equipment);
-        if (volume >= 0) {
+        if (volume > 0) {
             this.volume = volume;
         }
     }
@@ -43,9 +43,9 @@ public class Microwave extends Equipment {
         return volume;
     }
 
-    public void setVolume(double volume) {
-        if (volume < 0) {
-            throw new NegativeArgumentException(ILLEGAL_ARGUMENT_EXC);
+    public void setVolume(double volume) throws MicrowaveVolumeWrongException{
+        if (volume <= 0) {
+            throw new MicrowaveVolumeWrongException(ILLEGAL_ARGUMENT_EXC);
         }
         this.volume = volume;
     }

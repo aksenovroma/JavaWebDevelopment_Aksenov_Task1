@@ -1,6 +1,8 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
-import by.epam.javatraning.aksenov.task1.model.exception.NegativeArgumentException;
+import by.epam.javatraning.aksenov.task1.model.exception.EquipmentPowerWrongException;
+import by.epam.javatraning.aksenov.task1.model.exception.EquipmentPriceWrongException;
+import by.epam.javatraning.aksenov.task1.model.exception.WrongArgumentException;
 
 import java.util.Objects;
 
@@ -22,10 +24,10 @@ public class Equipment {
     }
 
     public Equipment(double price, double power, boolean selector) {
-        if (price >= 0) {
+        if (price > 0) {
             this.price = price;
         }
-        if (power >= 0) {
+        if (power > 0) {
             this.power = power;
         }
         this.selector = selector;
@@ -43,9 +45,9 @@ public class Equipment {
         return price;
     }
 
-    public void setPrice(double price) {
-        if (price < 0) {
-            throw new NegativeArgumentException(ILLEGAL_ARGUMENT_EXC);
+    public void setPrice(double price) throws EquipmentPriceWrongException{
+        if (price <= 0) {
+            throw new EquipmentPriceWrongException(ILLEGAL_ARGUMENT_EXC);
         }
         this.price = price;
     }
@@ -54,9 +56,9 @@ public class Equipment {
         return power;
     }
 
-    public void setPower(double power) {
-        if (power < 0) {
-            throw new NegativeArgumentException(ILLEGAL_ARGUMENT_EXC);
+    public void setPower(double power) throws EquipmentPowerWrongException{
+        if (power <= 0) {
+            throw new EquipmentPowerWrongException();
         }
         this.power = power;
     }

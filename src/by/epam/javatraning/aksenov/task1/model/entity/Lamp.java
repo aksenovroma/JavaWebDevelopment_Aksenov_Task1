@@ -1,7 +1,7 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
-import by.epam.javatraning.aksenov.task1.model.exception.NegativeArgumentException;
-import by.epam.javatraning.aksenov.task1.model.exception.NullArgumentException;
+import by.epam.javatraning.aksenov.task1.model.exception.LampLightbulbWrongExceprion;
+import by.epam.javatraning.aksenov.task1.model.exception.WrongArgumentException;
 
 import java.util.Objects;
 
@@ -27,14 +27,14 @@ public class Lamp extends Equipment {
 
     public Lamp(double price, double power, boolean selector, int lightbulb) {
         super(price, power, selector);
-        if (lightbulb >= 0) {
+        if (lightbulb > 0) {
             this.lightbulb = lightbulb;
         }
     }
 
     public Lamp(Equipment equipment, int lightbulb) {
         super(equipment);
-        if (lightbulb >= 0) {
+        if (lightbulb > 0) {
             this.lightbulb = lightbulb;
         }
     }
@@ -43,9 +43,9 @@ public class Lamp extends Equipment {
         return lightbulb;
     }
 
-    public void setLightbulb(int lightbulb) {
-        if (lightbulb < 0) {
-            throw new NegativeArgumentException(ILLEGAL_ARGUMENT_EXC);
+    public void setLightbulb(int lightbulb) throws LampLightbulbWrongExceprion{
+        if (lightbulb <= 0) {
+            throw new LampLightbulbWrongExceprion(ILLEGAL_ARGUMENT_EXC);
         }
         this.lightbulb = lightbulb;
     }

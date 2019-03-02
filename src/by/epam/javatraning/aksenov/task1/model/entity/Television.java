@@ -1,7 +1,7 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
-import by.epam.javatraning.aksenov.task1.model.exception.NegativeArgumentException;
-import by.epam.javatraning.aksenov.task1.model.exception.NullArgumentException;
+import by.epam.javatraning.aksenov.task1.model.exception.TelevisionDiagonalWrongException;
+import by.epam.javatraning.aksenov.task1.model.exception.WrongArgumentException;
 
 import java.util.Objects;
 
@@ -27,14 +27,14 @@ public class Television extends Equipment {
 
     public Television(double price, double power, boolean selector, double diagonal) {
         super(price, power, selector);
-        if (diagonal >= 0) {
+        if (diagonal > 0) {
             this.diagonal = diagonal;
         }
     }
 
     public Television(Equipment equipment, double diagonal) {
         super(equipment);
-        if (diagonal >= 0) {
+        if (diagonal > 0) {
             this.diagonal = diagonal;
         }
     }
@@ -43,9 +43,9 @@ public class Television extends Equipment {
         return diagonal;
     }
 
-    public void setDiagonal(double diagonal) {
-        if (diagonal < 0) {
-            throw new NegativeArgumentException(ILLEGAL_ARGUMENT_EXC);
+    public void setDiagonal(double diagonal) throws TelevisionDiagonalWrongException{
+        if (diagonal <= 0) {
+            throw new TelevisionDiagonalWrongException(ILLEGAL_ARGUMENT_EXC);
         }
         this.diagonal = diagonal;
     }
