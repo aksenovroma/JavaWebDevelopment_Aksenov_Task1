@@ -1,9 +1,10 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
-import by.epam.javatraning.aksenov.task1.model.exception.NullArgumentException;
-import org.testng.Assert;
+import by.epam.javatraning.aksenov.task1.model.exception.HomeEquipmentWrongException;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.*;
 
 public class HomeTest {
     private Home home1;
@@ -34,7 +35,7 @@ public class HomeTest {
         Equipment[] expected = equipment1;
         Equipment[] actual = testHome.getEquipment();
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -44,11 +45,21 @@ public class HomeTest {
         Equipment[] expected = null;
         Equipment[] actual = testHome.getEquipment();
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
-    @Test(expectedExceptions = NullArgumentException.class)
-    public void testSetEquipment() {
+    @Test
+    public void testSetEquipment() throws HomeEquipmentWrongException {
+        Home expected = home1;
+        Home actual = new Home(equipment2);
+
+        actual.setEquipment(equipment1);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test(expectedExceptions = HomeEquipmentWrongException.class)
+    public void testSetEquipmentWrong() throws HomeEquipmentWrongException {
         home1.setEquipment(null);
     }
 
@@ -59,7 +70,7 @@ public class HomeTest {
 
         actual.add(lamp2);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -69,28 +80,28 @@ public class HomeTest {
 
         actual.add(null);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
     public void testAtHome() {
         boolean actual = home1.atHome(lamp1);
 
-        Assert.assertTrue(actual);
+        assertTrue(actual);
     }
 
     @Test
     public void testAtHomeNullPtr() {
         boolean actual = home1.atHome(null);
 
-        Assert.assertFalse(actual);
+        assertFalse(actual);
     }
 
     @Test
     public void testAtHomeFalse() {
         boolean actual = home1.atHome(lamp2);
 
-        Assert.assertFalse(actual);
+        assertFalse(actual);
     }
 
     @Test
@@ -100,7 +111,7 @@ public class HomeTest {
 
         actual.remove(lamp2);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -110,7 +121,7 @@ public class HomeTest {
 
         actual.remove(null);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -120,6 +131,6 @@ public class HomeTest {
 
         actual2.remove(lamp2);
 
-        Assert.assertEquals(expected2, actual2);
+        assertEquals(expected2, actual2);
     }
 }

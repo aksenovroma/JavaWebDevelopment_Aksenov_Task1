@@ -5,6 +5,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import static org.testng.Assert.*;
+
 public class SearcherTest {
     private Home home1;
     private Home home2;
@@ -34,7 +36,7 @@ public class SearcherTest {
         int expected = 2;
         int actual = Searcher.findIndexOfEquipmentByPower(home1, 120);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -42,7 +44,7 @@ public class SearcherTest {
         int expected = -1;
         int actual = Searcher.findIndexOfEquipmentByPower(home2, 120);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -50,7 +52,7 @@ public class SearcherTest {
         int expected = -1;
         int actual = Searcher.findIndexOfEquipmentByPower(home3, 120);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
 
@@ -60,7 +62,7 @@ public class SearcherTest {
         int expected = 1;
         int actual = Searcher.findIndexOfEquipmentByPrice(home1, 560);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -68,7 +70,7 @@ public class SearcherTest {
         int expected = -1;
         int actual = Searcher.findIndexOfEquipmentByPower(home2, 560);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -76,7 +78,7 @@ public class SearcherTest {
         int expected = -1;
         int actual = Searcher.findIndexOfEquipmentByPower(home3, 560);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
 
@@ -86,7 +88,7 @@ public class SearcherTest {
         Equipment expected = television;
         Equipment actual = Searcher.findMaxPriceEquipment(home1);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -94,7 +96,7 @@ public class SearcherTest {
         Equipment expected = null;
         Equipment actual = Searcher.findMaxPriceEquipment(home2);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -102,7 +104,7 @@ public class SearcherTest {
         Equipment expected = null;
         Equipment actual = Searcher.findMaxPriceEquipment(home3);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
 
@@ -112,7 +114,7 @@ public class SearcherTest {
         Equipment expected = lamp2;
         Equipment actual = Searcher.findMinPriceEquipment(home1);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -120,7 +122,7 @@ public class SearcherTest {
         Equipment expected = null;
         Equipment actual = Searcher.findMinPriceEquipment(home2);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -128,7 +130,7 @@ public class SearcherTest {
         Equipment expected = null;
         Equipment actual = Searcher.findMinPriceEquipment(home3);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
 
@@ -138,7 +140,7 @@ public class SearcherTest {
         Equipment expected1 = microwave;
         Equipment actual1 = Searcher.findMaxPowerEquipment(home1);
 
-        Assert.assertEquals(expected1, actual1);
+        assertEquals(expected1, actual1);
     }
 
     @Test
@@ -146,7 +148,7 @@ public class SearcherTest {
         Equipment expected = null;
         Equipment actual = Searcher.findMaxPowerEquipment(home2);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -154,7 +156,7 @@ public class SearcherTest {
         Equipment expected = null;
         Equipment actual = Searcher.findMaxPowerEquipment(home3);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
 
@@ -164,7 +166,7 @@ public class SearcherTest {
         Equipment expected = lamp1;
         Equipment actual = Searcher.findMinPowerEquipment(home1);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -172,7 +174,7 @@ public class SearcherTest {
         Equipment expected = null;
         Equipment actual = Searcher.findMinPowerEquipment(home2);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -180,6 +182,6 @@ public class SearcherTest {
         Equipment expected = null;
         Equipment actual = Searcher.findMinPowerEquipment(home3);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 }

@@ -1,9 +1,10 @@
 package by.epam.javatraning.aksenov.task1.model.logic;
 
 import by.epam.javatraning.aksenov.task1.model.entity.*;
-import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.*;
 
 public class CalculatorTest {
     private Home home1;
@@ -30,7 +31,7 @@ public class CalculatorTest {
         double expected = 910;
         double actual = Calculator.sumPowerOfDevices(home1);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -38,7 +39,7 @@ public class CalculatorTest {
         double expected = 0;
         double actual = Calculator.sumPowerOfDevices(home2);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -46,7 +47,7 @@ public class CalculatorTest {
         double expected = 0;
         double actual = Calculator.sumPowerOfDevices(home3);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -54,7 +55,7 @@ public class CalculatorTest {
         double expected = 180;
         double actual = Calculator.sumPowerOfOnDevices(home1);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -62,7 +63,7 @@ public class CalculatorTest {
         double expected = 0;
         double actual = Calculator.sumPowerOfOnDevices(home2);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -70,6 +71,6 @@ public class CalculatorTest {
         double expected = 0;
         double actual = Calculator.sumPowerOfOnDevices(home3);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 }

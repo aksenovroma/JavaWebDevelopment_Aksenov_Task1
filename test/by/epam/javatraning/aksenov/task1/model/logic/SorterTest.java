@@ -1,9 +1,10 @@
 package by.epam.javatraning.aksenov.task1.model.logic;
 
 import by.epam.javatraning.aksenov.task1.model.entity.*;
-import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.*;
 
 public class SorterTest {
     private Home home1;
@@ -38,7 +39,7 @@ public class SorterTest {
         Sorter.bubbleSortByPower(home1);
         Home actual = home1;
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -47,7 +48,7 @@ public class SorterTest {
         Sorter.bubbleSortByPower(home4);
         Home actual = home4;
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -56,16 +57,16 @@ public class SorterTest {
         Sorter.bubbleSortByPower(home3);
         Home actual = home3;
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
     public void testReplace() {
-        Equipment[] expected = {television, microwave};
-        Equipment[] actual = {microwave, television};
+        Equipment[] expected = {television, microwave, lamp1, lamp2};
+        Equipment[] actual = {microwave, television, lamp1, lamp2};
         Sorter.replace(actual, 0);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -74,7 +75,7 @@ public class SorterTest {
         Equipment[] actual = null;
         Sorter.replace(actual, 0);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -83,7 +84,7 @@ public class SorterTest {
         Equipment[] actual = {television, microwave};
         Sorter.replace(actual, -1);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -92,7 +93,7 @@ public class SorterTest {
         Equipment[] actual = {television, microwave};
         Sorter.replace(actual, 3);
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
 }

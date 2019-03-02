@@ -1,9 +1,11 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
-import by.epam.javatraning.aksenov.task1.model.exception.NegativeArgumentException;
+import by.epam.javatraning.aksenov.task1.model.exception.MicrowaveVolumeWrongException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.*;
 
 public class MicrowaveTest {
     private Microwave microwave;
@@ -43,16 +45,19 @@ public class MicrowaveTest {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test(expectedExceptions = NegativeArgumentException.class)
-    public void setVolume() {
+    @Test
+    public void testSetVolume() throws MicrowaveVolumeWrongException {
         double expected = 12;
 
         microwave.setVolume(12);
 
         double actual = microwave.getVolume();
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
+    }
 
+    @Test(expectedExceptions = MicrowaveVolumeWrongException.class)
+    public void testSetVolumeWrong() throws MicrowaveVolumeWrongException {
         microwave.setVolume(-10);
     }
 }

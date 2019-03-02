@@ -1,9 +1,10 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
-import by.epam.javatraning.aksenov.task1.model.exception.NegativeArgumentException;
-import org.testng.Assert;
+import by.epam.javatraning.aksenov.task1.model.exception.TelevisionDiagonalWrongException;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.*;
 
 public class TelevisionTest {
     private Television television;
@@ -17,10 +18,10 @@ public class TelevisionTest {
     public void testConstructorTelevision() {
         Television television = new Television(120, 60, true, 19);
 
-        double expected1 = 19;
-        double actual1 = television.getDiagonal();
+        double expected = 19;
+        double actual = television.getDiagonal();
 
-        Assert.assertEquals(expected1, actual1);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -30,7 +31,7 @@ public class TelevisionTest {
         double expected = 0;
         double actual = television.getDiagonal();
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -40,19 +41,22 @@ public class TelevisionTest {
         double expected = 22;
         double actual = televisionCopy.getDiagonal();
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
-    @Test(expectedExceptions = NegativeArgumentException.class)
-    public void setDiagonal() {
+    @Test
+    public void testSetDiagonal() throws TelevisionDiagonalWrongException {
         double expected = 21;
 
         television.setDiagonal(21);
 
         double actual = television.getDiagonal();
 
-        Assert.assertEquals(expected, actual);
+        assertEquals(expected, actual);
+    }
 
-        television.setDiagonal(-10);
+    @Test(expectedExceptions = TelevisionDiagonalWrongException.class)
+    public void testSetDiagonalWrong() throws TelevisionDiagonalWrongException {
+        television.setDiagonal(-1);
     }
 }
