@@ -1,5 +1,6 @@
 package by.epam.javatraning.aksenov.task1.controller;
 
+import by.epam.javatraning.aksenov.task1.model.container.ArrayStack;
 import by.epam.javatraning.aksenov.task1.model.entity.*;
 import by.epam.javatraning.aksenov.task1.model.logic.Calculator;
 import by.epam.javatraning.aksenov.task1.model.logic.Searcher;
@@ -19,7 +20,7 @@ import java.util.List;
 
 /**
  * Program implements the hierarchy of electrical equipment in the house.
- *
+ * <p>
  * https://github.com/aksenovroma/JavaWebDevelopment_Aksenov_Task1
  *
  * @author aksenov
@@ -55,13 +56,21 @@ public class Main {
         PrinterType printerType = UserPrinter.select();
         Printable printer = PrinterCreator.create(printerType);
 
-        printer.print(home);
+        /*printer.print(home);
         Sorter.bubbleSortByPower(home);
         printer.print(home);
         double count = Calculator.sumPowerOfDevices(home);
         printer.print(count);
         Equipment e = Searcher.findMaxPowerEquipment(home);
-        printer.print(e);
+        printer.print(e);*/
 
+        ArrayStack<Equipment> arrayStack = new ArrayStack<>(equipment);
+
+
+        try {
+            System.out.println(arrayStack.pop());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
