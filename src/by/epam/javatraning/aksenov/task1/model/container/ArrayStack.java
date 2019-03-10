@@ -1,18 +1,22 @@
 package by.epam.javatraning.aksenov.task1.model.container;
 
-public class ArrayStack<T> {
+import by.epam.javatraning.aksenov.task1.model.exception.TechnicalProjectException;
+
+public class ArrayStack<T> implements Stack<T>{
     private T[] elements;
     private int count;
 
-    private final int n = 10;
+    private final int n = 5;
 
     public ArrayStack() {
         this.elements = (T[]) new Object[n];
     }
 
     public ArrayStack(T[] elements) {
-        this.elements = elements;
-        this.count = elements.length;
+        if (elements != null) {
+            this.elements = elements;
+            count = elements.length;
+        }
     }
 
     public boolean isEmpty() {
@@ -23,22 +27,22 @@ public class ArrayStack<T> {
         return count;
     }
 
-    public void push(T element) throws Exception{
+    public void push(T element) {
         if (count == elements.length) {
-            resize(elements.length + 10);
+            resize(elements.length * 2);
         }
         elements[count++] = element;
     }
 
-    public T pop() throws Exception{
+    public T pop() throws TechnicalProjectException{
         if (isEmpty()) {
-            throw new Exception("Стек пуст");
+            throw new TechnicalProjectException("Стек пуст");
         }
         T element = elements[--count];
         elements[count] = null;
 
-        if (count > 0 && count < elements.length - 10){
-            resize(elements.length - 10);
+        if (count > 0 && count == elements.length / 4){
+            resize(elements.length / 2);
         }
 
         return element;
@@ -48,13 +52,18 @@ public class ArrayStack<T> {
         return elements[count - 1];
     }
 
-    public void resize(int max) {
-        T[] tempElements = (T[]) new Object[max];
-        for (int i = 0; i < count; i++) {
-            tempElements[i] = elements[i];
+    public void resize(int size) {
+        if (size > elements.length) {
+            T[] tempElements = (T[]) new Object[size];
+            for (int i = 0; i < count; i++) {
+                tempElements[i] = elements[i];
+            }
+            elements = tempElements;
         }
-        elements = tempElements;
+    }
 
+    public int size() {
+        return elements.length;
     }
 
 }

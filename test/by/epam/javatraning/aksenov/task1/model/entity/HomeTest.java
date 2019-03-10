@@ -40,7 +40,7 @@ public class HomeTest {
     public void testConstructorHomeNullArr() {
         Home testHome = new Home(null);
 
-        Equipment[] expected = null;
+        Equipment[] expected = new Equipment[0];
         Equipment[] actual = testHome.getEquipment();
 
         assertEquals(expected, actual);

@@ -1,7 +1,9 @@
 package by.epam.javatraning.aksenov.task1.controller;
 
+import by.epam.javatraning.aksenov.task1.model.container.ArrayQueue;
 import by.epam.javatraning.aksenov.task1.model.container.ArrayStack;
 import by.epam.javatraning.aksenov.task1.model.entity.*;
+import by.epam.javatraning.aksenov.task1.model.exception.TechnicalProjectException;
 import by.epam.javatraning.aksenov.task1.model.logic.Calculator;
 import by.epam.javatraning.aksenov.task1.model.logic.Searcher;
 import by.epam.javatraning.aksenov.task1.model.logic.Sorter;
@@ -17,6 +19,8 @@ import by.epam.javatraning.aksenov.task1.view.Printable;
 import by.epam.javatraning.aksenov.task1.view.PrinterType;
 
 import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  * Program implements the hierarchy of electrical equipment in the house.
@@ -64,13 +68,15 @@ public class Main {
         Equipment e = Searcher.findMaxPowerEquipment(home);
         printer.print(e);*/
 
-        ArrayStack<Equipment> arrayStack = new ArrayStack<>(equipment);
+        ArrayQueue<Equipment> arrayStack = new ArrayQueue<>(3);
+        System.out.println(arrayStack.isEmpty());
+        System.out.println(arrayStack.count());
+        System.out.println(arrayStack.size());
 
+        Lamp lamp = new Lamp(120, 40, false, 3);
+        arrayStack.enqueue(lamp);
 
-        try {
-            System.out.println(arrayStack.pop());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        System.out.println(arrayStack);
+
     }
 }

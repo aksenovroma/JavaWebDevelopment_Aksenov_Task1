@@ -16,7 +16,7 @@ import java.util.Arrays;
 public class Home {
     private static final String NULL_POINTER_EXC = "argument can't be null";
 
-    private Equipment[] equipment;
+    private Equipment[] equipment = new Equipment[0];
 
     public Home(Equipment... equipment) {
         if (equipment != null) {
