@@ -6,10 +6,17 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class ArrayQueue<T> implements Queue<T> {
-    private T[] elements = (T[]) new Object[0];
+    private T[] elements;
     private int head;
     private int next;
     private int count;
+
+    {
+         elements = (T[]) new Object[5];
+    }
+
+    public ArrayQueue() {
+    }
 
     public ArrayQueue(int size) {
         if (size >= 0) {

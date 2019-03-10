@@ -2,6 +2,8 @@ package by.epam.javatraning.aksenov.task1.controller;
 
 import by.epam.javatraning.aksenov.task1.model.container.ArrayQueue;
 import by.epam.javatraning.aksenov.task1.model.container.ArrayStack;
+import by.epam.javatraning.aksenov.task1.model.container.ListQueue;
+import by.epam.javatraning.aksenov.task1.model.container.ListStack;
 import by.epam.javatraning.aksenov.task1.model.entity.*;
 import by.epam.javatraning.aksenov.task1.model.exception.TechnicalProjectException;
 import by.epam.javatraning.aksenov.task1.model.logic.Calculator;
@@ -68,15 +70,14 @@ public class Main {
         Equipment e = Searcher.findMaxPowerEquipment(home);
         printer.print(e);*/
 
-        ArrayQueue<Equipment> arrayStack = new ArrayQueue<>(3);
-        System.out.println(arrayStack.isEmpty());
-        System.out.println(arrayStack.count());
-        System.out.println(arrayStack.size());
+        ListStack<Equipment> listQueue = new ListStack<>();
 
-        Lamp lamp = new Lamp(120, 40, false, 3);
-        arrayStack.enqueue(lamp);
-
-        System.out.println(arrayStack);
+        System.out.println(listQueue.count());
+        System.out.println(listQueue.isEmpty());
+        listQueue.push(equipment[0]);
+        System.out.println(listQueue);
+        listQueue.push(equipment[1]);
+        System.out.println(listQueue);
 
     }
 }

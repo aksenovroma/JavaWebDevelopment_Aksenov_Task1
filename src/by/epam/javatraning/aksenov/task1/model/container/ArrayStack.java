@@ -2,14 +2,24 @@ package by.epam.javatraning.aksenov.task1.model.container;
 
 import by.epam.javatraning.aksenov.task1.model.exception.TechnicalProjectException;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class ArrayStack<T> implements Stack<T>{
     private T[] elements;
     private int count;
 
-    private final int n = 5;
+    {
+        elements = (T[]) new Object[5];
+    }
 
     public ArrayStack() {
-        this.elements = (T[]) new Object[n];
+    }
+
+    public ArrayStack(int size) {
+        if (size >= 0) {
+            elements = (T[]) new Object[size];
+        }
     }
 
     public ArrayStack(T[] elements) {
@@ -27,6 +37,21 @@ public class ArrayStack<T> implements Stack<T>{
         return count;
     }
 
+    public int size() {
+        return elements.length;
+    }
+
+    public void resize(int size) {
+        if (size > elements.length) {
+            T[] tempElements = (T[]) new Object[size];
+            for (int i = 0; i < count; i++) {
+                tempElements[i] = elements[i];
+            }
+            elements = tempElements;
+        }
+    }
+
+    @Override
     public void push(T element) {
         if (count == elements.length) {
             resize(elements.length * 2);
@@ -34,6 +59,7 @@ public class ArrayStack<T> implements Stack<T>{
         elements[count++] = element;
     }
 
+    @Override
     public T pop() throws TechnicalProjectException{
         if (isEmpty()) {
             throw new TechnicalProjectException("Стек пуст");
@@ -52,18 +78,27 @@ public class ArrayStack<T> implements Stack<T>{
         return elements[count - 1];
     }
 
-    public void resize(int size) {
-        if (size > elements.length) {
-            T[] tempElements = (T[]) new Object[size];
-            for (int i = 0; i < count; i++) {
-                tempElements[i] = elements[i];
-            }
-            elements = tempElements;
-        }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ArrayStack<?> that = (ArrayStack<?>) o;
+        return count == that.count &&
+                Arrays.equals(elements, that.elements);
     }
 
-    public int size() {
-        return elements.length;
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(count);
+        result = 31 * result + Arrays.hashCode(elements);
+        return result;
     }
 
+    @Override
+    public String toString() {
+        return "ArrayStack{" +
+                "elements=" + Arrays.toString(elements) +
+                ", count=" + count +
+                '}';
+    }
 }
