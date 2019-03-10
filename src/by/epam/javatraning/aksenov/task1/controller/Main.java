@@ -62,22 +62,13 @@ public class Main {
         PrinterType printerType = UserPrinter.select();
         Printable printer = PrinterCreator.create(printerType);
 
-        /*printer.print(home);
+        printer.print(home);
         Sorter.bubbleSortByPower(home);
         printer.print(home);
         double count = Calculator.sumPowerOfDevices(home);
         printer.print(count);
         Equipment e = Searcher.findMaxPowerEquipment(home);
-        printer.print(e);*/
-
-        ListStack<Equipment> listQueue = new ListStack<>();
-
-        System.out.println(listQueue.count());
-        System.out.println(listQueue.isEmpty());
-        listQueue.push(equipment[0]);
-        System.out.println(listQueue);
-        listQueue.push(equipment[1]);
-        System.out.println(listQueue);
+        printer.print(e);
 
     }
 }
