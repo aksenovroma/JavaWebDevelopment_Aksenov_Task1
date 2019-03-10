@@ -4,6 +4,14 @@ import by.epam.javatraning.aksenov.task1.model.exception.TechnicalProjectExcepti
 
 import java.util.Objects;
 
+/**
+ * @author aksenov
+ * @version 1.0
+ *
+ * Entity class for storing information
+ * Class storing data in stack based on linked list
+ */
+
 public class ListStack<T> implements Stack<T> {
     private int count;
 

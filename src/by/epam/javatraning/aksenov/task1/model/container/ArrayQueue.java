@@ -5,6 +5,14 @@ import by.epam.javatraning.aksenov.task1.model.exception.TechnicalProjectExcepti
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * @author aksenov
+ * @version 1.0
+ *
+ * Entity class for storing information
+ * Class storing data in queue based on array
+ */
+
 public class ArrayQueue<T> implements Queue<T> {
     private T[] elements;
     private int head;

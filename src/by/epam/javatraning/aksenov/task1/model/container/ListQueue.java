@@ -4,6 +4,14 @@ import by.epam.javatraning.aksenov.task1.model.exception.TechnicalProjectExcepti
 
 import java.util.Objects;
 
+/**
+ * @author aksenov
+ * @version 1.0
+ *
+ * Entity class for storing information
+ * Class storing data in queue based on linked list
+ */
+
 public class ListQueue<T> implements Queue<T> {
     private int count;
 
