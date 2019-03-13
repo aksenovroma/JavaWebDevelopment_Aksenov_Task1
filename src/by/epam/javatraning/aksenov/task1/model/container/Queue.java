@@ -9,7 +9,7 @@ import by.epam.javatraning.aksenov.task1.model.exception.TechnicalProjectExcepti
  * Interface for implementation data structure - queue
  */
 
-public interface Queue<T> {
+public interface Queue<T> extends MyCollection<T>{
     void enqueue(T t);
-    T dequeue() throws TechnicalProjectException;
+    T dequeue();
 }

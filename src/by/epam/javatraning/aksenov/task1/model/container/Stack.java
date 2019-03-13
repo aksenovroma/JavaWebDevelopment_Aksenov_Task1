@@ -9,7 +9,7 @@ import by.epam.javatraning.aksenov.task1.model.exception.TechnicalProjectExcepti
  * Interface for implementation data structure - stack
  */
 
-public interface Stack<T> {
+public interface Stack<T> extends MyCollection<T>{
     void push(T t);
-    T pop() throws TechnicalProjectException;
+    T pop();
 }

@@ -12,14 +12,14 @@ import java.util.Objects;
  * Class storing data in queue based on linked list
  */
 
-public class ListQueue<T> implements Queue<T> {
-    private int count;
+public class ListQueue<T> implements Queue<T>, ListStructure {
 
     private class Node {
         private T element;
         private Node next;
     }
 
+    private int count;
     private Node first;
     private Node last;
 
@@ -48,9 +48,9 @@ public class ListQueue<T> implements Queue<T> {
     }
 
     @Override
-    public T dequeue() throws TechnicalProjectException {
+    public T dequeue() {
         if (count == 0) {
-            throw new TechnicalProjectException();
+            return null;
         }
         T element = first.element;
         first = first.next;

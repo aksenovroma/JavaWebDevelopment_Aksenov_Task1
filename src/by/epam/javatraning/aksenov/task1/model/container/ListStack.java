@@ -2,6 +2,7 @@ package by.epam.javatraning.aksenov.task1.model.container;
 
 import by.epam.javatraning.aksenov.task1.model.exception.TechnicalProjectException;
 
+import java.util.LinkedList;
 import java.util.Objects;
 
 /**
@@ -12,7 +13,7 @@ import java.util.Objects;
  * Class storing data in stack based on linked list
  */
 
-public class ListStack<T> implements Stack<T> {
+public class ListStack<T> implements Stack<T>, ListStructure{
     private int count;
 
     private class Node {
@@ -43,9 +44,9 @@ public class ListStack<T> implements Stack<T> {
     }
 
     @Override
-    public T pop() throws TechnicalProjectException {
+    public T pop() {
         if (first == null) {
-            throw new TechnicalProjectException();
+            return null;
         }
         T element = first.element;
         first = first.next;

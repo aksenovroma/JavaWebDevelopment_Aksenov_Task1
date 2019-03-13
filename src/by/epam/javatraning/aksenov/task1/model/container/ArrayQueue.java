@@ -13,17 +13,16 @@ import java.util.Objects;
  * Class storing data in queue based on array
  */
 
-public class ArrayQueue<T> implements Queue<T> {
+public class ArrayQueue<T> implements Queue<T>, ArrayStructure{
+    private static final int SIZE_DEFAULT = 5;
+
     private T[] elements;
     private int head;
     private int next;
     private int count;
 
-    {
-         elements = (T[]) new Object[5];
-    }
-
     public ArrayQueue() {
+        elements = (T[]) new Object[SIZE_DEFAULT];
     }
 
     public ArrayQueue(int size) {
@@ -39,7 +38,7 @@ public class ArrayQueue<T> implements Queue<T> {
         }
     }
 
-    private void resize(int capacity) {
+    public void resize(int capacity) {
         if (capacity >= 0) {
             T[] temp = (T[]) new Object[capacity];
 
@@ -78,9 +77,9 @@ public class ArrayQueue<T> implements Queue<T> {
     }
 
     @Override
-    public T dequeue() throws TechnicalProjectException {
+    public T dequeue() {
         if (isEmpty()) {
-            throw new TechnicalProjectException();
+
         }
         T element = elements[head];
         elements[head] = null;
@@ -91,33 +90,5 @@ public class ArrayQueue<T> implements Queue<T> {
             resize(elements.length / 2);
         }
         return element;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ArrayQueue<?> that = (ArrayQueue<?>) o;
-        return head == that.head &&
-                next == that.next &&
-                count == that.count &&
-                Arrays.equals(elements, that.elements);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Objects.hash(head, next, count);
-        result = 31 * result + Arrays.hashCode(elements);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "ArrayQueue{" +
-                "elements=" + Arrays.toString(elements) +
-                ", head=" + head +
-                ", next=" + next +
-                ", count=" + count +
-                '}';
     }
 }

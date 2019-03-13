@@ -13,15 +13,14 @@ import java.util.Objects;
  * Class storing data in stack based on array
  */
 
-public class ArrayStack<T> implements Stack<T>{
+public class ArrayStack<T> implements Stack<T>, ArrayStructure{
+    private static final int SIZE_DEFAULT = 5;
+
     private T[] elements;
     private int count;
 
-    {
-        elements = (T[]) new Object[5];
-    }
-
     public ArrayStack() {
+        elements = (T[]) new Object[SIZE_DEFAULT];
     }
 
     public ArrayStack(int size) {
@@ -49,6 +48,10 @@ public class ArrayStack<T> implements Stack<T>{
         return elements.length;
     }
 
+    public T peek() {
+        return elements[count - 1];
+    }
+
     public void resize(int size) {
         if (size > elements.length) {
             T[] tempElements = (T[]) new Object[size];
@@ -68,9 +71,9 @@ public class ArrayStack<T> implements Stack<T>{
     }
 
     @Override
-    public T pop() throws TechnicalProjectException{
+    public T pop() {
         if (isEmpty()) {
-            throw new TechnicalProjectException("Стек пуст");
+            return null;
         }
         T element = elements[--count];
         elements[count] = null;
@@ -80,33 +83,5 @@ public class ArrayStack<T> implements Stack<T>{
         }
 
         return element;
-    }
-
-    public T peek() {
-        return elements[count - 1];
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        ArrayStack<?> that = (ArrayStack<?>) o;
-        return count == that.count &&
-                Arrays.equals(elements, that.elements);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Objects.hash(count);
-        result = 31 * result + Arrays.hashCode(elements);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "ArrayStack{" +
-                "elements=" + Arrays.toString(elements) +
-                ", count=" + count +
-                '}';
     }
 }
