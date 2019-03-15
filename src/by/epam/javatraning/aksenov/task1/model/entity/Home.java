@@ -1,6 +1,6 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
-import by.epam.javatraning.aksenov.task1.model.exception.HomeEquipmentWrongException;
+import by.epam.javatraning.aksenov.task1.model.exception.logic.HomeEquipmentWrongException;
 
 import java.util.Arrays;
 

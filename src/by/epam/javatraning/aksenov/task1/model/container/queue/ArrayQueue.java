@@ -1,9 +1,6 @@
-package by.epam.javatraning.aksenov.task1.model.container;
+package by.epam.javatraning.aksenov.task1.model.container.queue;
 
-import by.epam.javatraning.aksenov.task1.model.exception.TechnicalProjectException;
-
-import java.util.Arrays;
-import java.util.Objects;
+import by.epam.javatraning.aksenov.task1.model.container.array.ArrayStructure;
 
 /**
  * @author aksenov
@@ -13,7 +10,7 @@ import java.util.Objects;
  * Class storing data in queue based on array
  */
 
-public class ArrayQueue<T> implements Queue<T>, ArrayStructure{
+public class ArrayQueue<T> implements Queue<T>, ArrayStructure {
     private static final int SIZE_DEFAULT = 5;
 
     private T[] elements;

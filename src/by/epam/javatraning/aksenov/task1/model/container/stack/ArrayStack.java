@@ -1,9 +1,6 @@
-package by.epam.javatraning.aksenov.task1.model.container;
+package by.epam.javatraning.aksenov.task1.model.container.stack;
 
-import by.epam.javatraning.aksenov.task1.model.exception.TechnicalProjectException;
-
-import java.util.Arrays;
-import java.util.Objects;
+import by.epam.javatraning.aksenov.task1.model.container.array.ArrayStructure;
 
 /**
  * @author aksenov
@@ -13,7 +10,7 @@ import java.util.Objects;
  * Class storing data in stack based on array
  */
 
-public class ArrayStack<T> implements Stack<T>, ArrayStructure{
+public class ArrayStack<T> implements Stack<T>, ArrayStructure {
     private static final int SIZE_DEFAULT = 5;
 
     private T[] elements;

@@ -1,8 +1,7 @@
-package by.epam.javatraning.aksenov.task1.model.container;
+package by.epam.javatraning.aksenov.task1.model.container.stack;
 
-import by.epam.javatraning.aksenov.task1.model.exception.TechnicalProjectException;
+import by.epam.javatraning.aksenov.task1.model.container.list.ListStructure;
 
-import java.util.LinkedList;
 import java.util.Objects;
 
 /**
@@ -13,7 +12,7 @@ import java.util.Objects;
  * Class storing data in stack based on linked list
  */
 
-public class ListStack<T> implements Stack<T>, ListStructure{
+public class ListStack<T> implements Stack<T>, ListStructure {
     private int count;
 
     private class Node {

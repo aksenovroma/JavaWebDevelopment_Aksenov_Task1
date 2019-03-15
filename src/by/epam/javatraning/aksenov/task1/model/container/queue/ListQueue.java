@@ -1,6 +1,6 @@
-package by.epam.javatraning.aksenov.task1.model.container;
+package by.epam.javatraning.aksenov.task1.model.container.queue;
 
-import by.epam.javatraning.aksenov.task1.model.exception.TechnicalProjectException;
+import by.epam.javatraning.aksenov.task1.model.container.list.ListStructure;
 
 import java.util.Objects;
 

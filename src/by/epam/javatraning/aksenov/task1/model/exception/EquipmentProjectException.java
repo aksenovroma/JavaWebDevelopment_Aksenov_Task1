@@ -7,4 +7,12 @@ public class EquipmentProjectException extends Exception {
     public EquipmentProjectException(String message) {
         super(message);
     }
+
+    public EquipmentProjectException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public EquipmentProjectException(Throwable cause) {
+        super(cause);
+    }
 }

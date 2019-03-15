@@ -1,7 +1,7 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
-import by.epam.javatraning.aksenov.task1.model.exception.EquipmentPowerWrongException;
-import by.epam.javatraning.aksenov.task1.model.exception.EquipmentPriceWrongException;
+import by.epam.javatraning.aksenov.task1.model.exception.logic.EquipmentPowerWrongException;
+import by.epam.javatraning.aksenov.task1.model.exception.logic.EquipmentPriceWrongException;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 

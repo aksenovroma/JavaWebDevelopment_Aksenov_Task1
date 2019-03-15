@@ -1,6 +1,6 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
-import by.epam.javatraning.aksenov.task1.model.exception.MicrowaveVolumeWrongException;
+import by.epam.javatraning.aksenov.task1.model.exception.logic.MicrowaveVolumeWrongException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;

@@ -1,9 +1,6 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
-import by.epam.javatraning.aksenov.task1.model.exception.TelevisionDiagonalWrongException;
-import by.epam.javatraning.aksenov.task1.model.exception.WrongArgumentException;
-
-import java.util.Objects;
+import by.epam.javatraning.aksenov.task1.model.exception.logic.TelevisionDiagonalWrongException;
 
 /**
  * @author aksenov
