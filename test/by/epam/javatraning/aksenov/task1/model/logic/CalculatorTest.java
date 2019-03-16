@@ -1,15 +1,16 @@
 package by.epam.javatraning.aksenov.task1.model.logic;
 
 import by.epam.javatraning.aksenov.task1.model.entity.*;
+import by.epam.javatraning.aksenov.task1.model.entity.container.HomeArray;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
 public class CalculatorTest {
-    private Home home1;
-    private Home home2;
-    private Home home3;
+    private HomeArray home1;
+    private HomeArray home2;
+    private HomeArray home3;
 
     @BeforeTest
     public void setHome() {
@@ -21,8 +22,8 @@ public class CalculatorTest {
         Equipment[] equipment1 = {lamp1, microwave, television, lamp2};
         Equipment[] equipment2 = {};
 
-        home1 = new Home(equipment1);
-        home2 = new Home(equipment2);
+        home1 = new HomeArray(equipment1);
+        home2 = new HomeArray(equipment2);
         home3 = null;
     }
 

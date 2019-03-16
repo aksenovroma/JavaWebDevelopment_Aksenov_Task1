@@ -1,16 +1,16 @@
 package by.epam.javatraning.aksenov.task1.model.logic;
 
 import by.epam.javatraning.aksenov.task1.model.entity.*;
-import org.testng.Assert;
+import by.epam.javatraning.aksenov.task1.model.entity.container.HomeArray;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
 public class SearcherTest {
-    private Home home1;
-    private Home home2;
-    private Home home3;
+    private HomeArray home1;
+    private HomeArray home2;
+    private HomeArray home3;
     private Lamp lamp1;
     private Lamp lamp2;
     private Microwave microwave;
@@ -26,8 +26,8 @@ public class SearcherTest {
         Equipment[] equipment1 = {lamp1, microwave, television, lamp2};
         Equipment[] equipment2 = {};
 
-        home1 = new Home(equipment1);
-        home2 = new Home(equipment2);
+        home1 = new HomeArray(equipment1);
+        home2 = new HomeArray(equipment2);
         home3 = null;
     }
 
@@ -68,7 +68,7 @@ public class SearcherTest {
     @Test
     public void testFindIndexOfEquipmentByPriceEmptyArr(){
         int expected = -1;
-        int actual = Searcher.findIndexOfEquipmentByPower(home2, 560);
+        int actual = Searcher.findIndexOfEquipmentByPrice(home2, 560);
 
         assertEquals(expected, actual);
     }
@@ -76,7 +76,7 @@ public class SearcherTest {
     @Test
     public void testFindIndexOfEquipmentByPriceNullPtr(){
         int expected = -1;
-        int actual = Searcher.findIndexOfEquipmentByPower(home3, 560);
+        int actual = Searcher.findIndexOfEquipmentByPrice(home3, 560);
 
         assertEquals(expected, actual);
     }

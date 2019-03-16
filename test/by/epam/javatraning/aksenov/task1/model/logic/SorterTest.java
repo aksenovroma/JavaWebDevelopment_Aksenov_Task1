@@ -1,99 +1,59 @@
 package by.epam.javatraning.aksenov.task1.model.logic;
 
 import by.epam.javatraning.aksenov.task1.model.entity.*;
+import by.epam.javatraning.aksenov.task1.model.entity.container.HomeArray;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
 public class SorterTest {
-    private Home home1;
-    private Home home2;
-    private Home home3;
-    private Home home4;
-    private Lamp lamp1;
-    private Lamp lamp2;
-    private Television television;
-    private Microwave microwave;
+    private HomeArray home1;
+    private HomeArray home2;
+    private HomeArray home3;
+    private HomeArray home4;
 
     @BeforeTest
     public void setHome() {
-        lamp1 = new Lamp(120.5, 60, true, 2);
-        microwave = new Microwave(560, 650, false, 15);
-        television = new Television(890.5, 120, true, 21);
-        lamp2 = new Lamp(110, 80, false, 3);
+        Lamp lamp1 = new Lamp(120.5, 60, true, 2);
+        Microwave microwave = new Microwave(560, 650, false, 15);
+        Television television = new Television(890.5, 120, true, 21);
+        Lamp lamp2 = new Lamp(110, 80, false, 3);
 
         Equipment[] equipment1 = new Equipment[]{lamp1, microwave, television, lamp2};
         Equipment[] equipment2 = new Equipment[]{microwave, television, lamp2, lamp1};
         Equipment[] equipment3 = new Equipment[]{};
 
-        home1 = new Home(equipment1);
-        home2 = new Home(equipment2);
-        home3 = new Home(equipment3);
+        home1 = new HomeArray(equipment1);
+        home2 = new HomeArray(equipment2);
+        home3 = new HomeArray(equipment3);
         home4 = null;
     }
 
     @Test
     public void testBubbleSortByPower() {
-        Home expected = home2;
+        HomeArray expected = home2;
         Sorter.bubbleSortByPower(home1);
-        Home actual = home1;
+        HomeArray actual = home1;
 
         assertEquals(expected, actual);
     }
 
     @Test
     public void testBubbleSortByPowerNullPtr(){
-        Home expected = home4;
+        HomeArray expected = home4;
         Sorter.bubbleSortByPower(home4);
-        Home actual = home4;
+        HomeArray actual = home4;
 
         assertEquals(expected, actual);
     }
 
     @Test
     public void testBubbleSortByPowerEmptyArr(){
-        Home expected = home3;
+        HomeArray expected = home3;
         Sorter.bubbleSortByPower(home3);
-        Home actual = home3;
+        HomeArray actual = home3;
 
         assertEquals(expected, actual);
     }
-
-    @Test
-    public void testReplace() {
-        Equipment[] expected = {television, microwave, lamp1, lamp2};
-        Equipment[] actual = {microwave, television, lamp1, lamp2};
-        Sorter.replace(actual, 0);
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testReplaceNullArr(){
-        Equipment[] expected = null;
-        Equipment[] actual = null;
-        Sorter.replace(actual, 0);
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testReplaceNegativeIndex(){
-        Equipment[] expected = {television, microwave};
-        Equipment[] actual = {television, microwave};
-        Sorter.replace(actual, -1);
-
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testReplaceOutOfBoundArr(){
-        Equipment[] expected = {television, microwave};
-        Equipment[] actual = {television, microwave};
-        Sorter.replace(actual, 3);
-
-        assertEquals(expected, actual);
-    }
-
 }

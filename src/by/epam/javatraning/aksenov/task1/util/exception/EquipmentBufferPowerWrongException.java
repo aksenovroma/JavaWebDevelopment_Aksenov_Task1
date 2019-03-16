@@ -1,6 +1,6 @@
 package by.epam.javatraning.aksenov.task1.util.exception;
 
-public class EquipmentBufferPowerWrongException extends Exception {
+public class EquipmentBufferPowerWrongException extends EquipmentBufferArgumentWronException {
     public EquipmentBufferPowerWrongException() {
     }
 

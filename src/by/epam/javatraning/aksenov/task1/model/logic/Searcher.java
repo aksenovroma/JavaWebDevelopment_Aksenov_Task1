@@ -1,7 +1,8 @@
 package by.epam.javatraning.aksenov.task1.model.logic;
 
 import by.epam.javatraning.aksenov.task1.model.entity.Equipment;
-import by.epam.javatraning.aksenov.task1.model.entity.Home;
+import by.epam.javatraning.aksenov.task1.model.entity.container.Home;
+import org.apache.log4j.Logger;
 
 /**
  * @author aksenov
@@ -12,45 +13,52 @@ import by.epam.javatraning.aksenov.task1.model.entity.Home;
  */
 
 public class Searcher {
+    private static final Logger log = Logger.getRootLogger();
+
+    private static final String INDEX_OF_EQUIPMENT_BY_POWER = "method findIndexOfEquipmentByPower returned = ";
+    private static final String INDEX_OF_EQUIPMENT_BY_PRICE = "method findIndexOfEquipmentByPrice returned = ";
+    private static final String MAX_PRICE_EQUIPMENT = "method findMaxPriceEquipment returned = ";
+    private static final String MIN_PRICE_EQUIPMENT = "method findMinPriceEquipment returned = ";
+    private static final String MAX_POWER_EQUIPMENT = "method findMaxPowerEquipment returned = ";
+    private static final String MIN_POWER_EQUIPMENT = "method findMinPowerEquipment returned = ";
+
     /**
      *
      * @param home - Home class object
-     * @param key - the value we want to find equipment
+     * @param power - the value we want to find equipment
      * @return index of equipment with power == key
      */
-    public static int findIndexOfEquipmentByPower(Home home, double key) {
-        if (home == null || home.getEquipment() == null) {
-            return -1;
-        }
-
-        Equipment[] equipment = home.getEquipment();
-
-        for (int i = 0; i < equipment.length; i++){
-            if (equipment[i].getPower() == key) {
-                return i;
+    public static int findIndexOfEquipmentByPower(Home home, double power) {
+        if (home != null && !(home.isEmpty())) {
+            for (int i = 0; i < home.size(); i++) {
+                if (home.get(i).getPower() == power) {
+                    log.info(INDEX_OF_EQUIPMENT_BY_POWER + i);
+                    return i;
+                }
             }
         }
+        log.info(INDEX_OF_EQUIPMENT_BY_POWER + -1);
+
         return -1;
     }
 
     /**
      *
      * @param home - Home class object
-     * @param key - the value we want to find equipment
+     * @param price - the value we want to find equipment
      * @return index of equipment with price == key
      */
-    public static int findIndexOfEquipmentByPrice(Home home, double key) {
-        if (home == null || home.getEquipment() == null) {
-            return -1;
-        }
-
-        Equipment[] equipment = home.getEquipment();
-
-        for (int i = 0; i < equipment.length; i++){
-            if (equipment[i].getPrice() == key) {
-                return i;
+    public static int findIndexOfEquipmentByPrice(Home home, double price) {
+        if (home != null && !(home.isEmpty())) {
+            for (int i = 0; i < home.size(); i++) {
+                if (home.get(i).getPrice() == price) {
+                    log.info(INDEX_OF_EQUIPMENT_BY_PRICE + i);
+                    return i;
+                }
             }
         }
+        log.info(INDEX_OF_EQUIPMENT_BY_PRICE + -1);
+
         return -1;
     }
 
@@ -60,23 +68,21 @@ public class Searcher {
      * @return equipment with max price
      */
     public static Equipment findMaxPriceEquipment(Home home) {
-        if (home == null || home.getEquipment() == null) {
-            return null;
-        }
+        Equipment maxPriceEquipment = null;
 
-        Equipment[] equipment = home.getEquipment();
+        if (home != null && !(home.isEmpty())) {
+            maxPriceEquipment = home.get(0);
 
-        if (equipment == null || equipment.length == 0) {
-            return null;
-        }
+            for (int i = 0; i < home.size(); i++) {
+                Equipment tempEquipment = home.get(i);
 
-        Equipment maxPriceEquipment = equipment[0];
-
-        for (Equipment anEquipment : equipment) {
-            if (maxPriceEquipment.getPrice() < anEquipment.getPrice()) {
-                maxPriceEquipment = anEquipment;
+                if (maxPriceEquipment.getPrice() < tempEquipment.getPrice()) {
+                    maxPriceEquipment = tempEquipment;
+                }
             }
         }
+        log.info(MAX_PRICE_EQUIPMENT + maxPriceEquipment);
+
         return maxPriceEquipment;
     }
 
@@ -86,23 +92,21 @@ public class Searcher {
      * @return equipment with min price
      */
     public static Equipment findMinPriceEquipment(Home home) {
-        if (home == null || home.getEquipment() == null) {
-            return null;
-        }
+        Equipment minPriceEquipment = null;
 
-        Equipment[] equipment = home.getEquipment();
+        if (home != null && !(home.isEmpty())) {
+            minPriceEquipment = home.get(0);
 
-        if (equipment == null || equipment.length == 0) {
-            return null;
-        }
+            for (int i = 0; i < home.size(); i++) {
+                Equipment tempEquipment = home.get(i);
 
-        Equipment minPriceEquipment = equipment[0];
-
-        for (Equipment anEquipment : equipment) {
-            if (minPriceEquipment.getPrice() > anEquipment.getPrice()) {
-                minPriceEquipment = anEquipment;
+                if (minPriceEquipment.getPrice() > tempEquipment.getPrice()) {
+                    minPriceEquipment = tempEquipment;
+                }
             }
         }
+        log.info(MIN_PRICE_EQUIPMENT + minPriceEquipment);
+
         return minPriceEquipment;
     }
 
@@ -112,23 +116,21 @@ public class Searcher {
      * @return equipment with max power
      */
     public static Equipment findMaxPowerEquipment(Home home) {
-        if (home == null || home.getEquipment() == null) {
-            return null;
-        }
+        Equipment maxPowerEquipment = null;
 
-        Equipment[] equipment = home.getEquipment();
+        if (home != null && !(home.isEmpty())) {
+            maxPowerEquipment = home.get(0);
 
-        if (equipment == null || equipment.length == 0) {
-            return null;
-        }
+            for (int i = 0; i < home.size(); i++) {
+                Equipment tempEquipment = home.get(i);
 
-        Equipment maxPowerEquipment = equipment[0];
-
-        for (Equipment anEquipment : equipment) {
-            if (maxPowerEquipment.getPower() < anEquipment.getPower()) {
-                maxPowerEquipment = anEquipment;
+                if (maxPowerEquipment.getPower() < tempEquipment.getPower()) {
+                    maxPowerEquipment = tempEquipment;
+                }
             }
         }
+        log.info(MAX_POWER_EQUIPMENT + maxPowerEquipment);
+
         return maxPowerEquipment;
     }
 
@@ -138,23 +140,21 @@ public class Searcher {
      * @return equipment with min power
      */
     public static Equipment findMinPowerEquipment(Home home) {
-        if (home == null || home.getEquipment() == null) {
-            return null;
-        }
+        Equipment minPowerEquipment = null;
 
-        Equipment[] equipment = home.getEquipment();
+        if (home != null && !(home.isEmpty())) {
+            minPowerEquipment = home.get(0);
 
-        if (equipment == null || equipment.length == 0) {
-            return null;
-        }
+            for (int i = 0; i < home.size(); i++) {
+                Equipment tempEquipment = home.get(i);
 
-        Equipment minPowerEquipment = equipment[0];
-
-        for (Equipment anEquipment : equipment) {
-            if (minPowerEquipment.getPower() > anEquipment.getPower()) {
-                minPowerEquipment = anEquipment;
+                if (minPowerEquipment.getPower() > tempEquipment.getPower()) {
+                    minPowerEquipment = tempEquipment;
+                }
             }
         }
+        log.info(MIN_POWER_EQUIPMENT + minPowerEquipment);
+
         return minPowerEquipment;
     }
 }

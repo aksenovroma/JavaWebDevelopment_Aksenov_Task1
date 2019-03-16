@@ -1,5 +1,6 @@
-package by.epam.javatraning.aksenov.task1.model.entity;
+package by.epam.javatraning.aksenov.task1.model.entity.container;
 
+import by.epam.javatraning.aksenov.task1.model.entity.Equipment;
 import by.epam.javatraning.aksenov.task1.model.exception.logic.HomeEquipmentWrongException;
 
 import java.util.Arrays;
@@ -13,21 +14,23 @@ import java.util.Arrays;
  * Class Home has methods for adding and removing equipment from house
  */
 
-public class Home {
+public class HomeArray implements Home{
     private static final String NULL_POINTER_EXC = "argument can't be null";
 
     private Equipment[] equipment = new Equipment[0];
 
-    public Home(Equipment... equipment) {
+    public HomeArray(Equipment... equipment) {
         if (equipment != null) {
             this.equipment = equipment;
         }
     }
 
+    @Override
     public Equipment[] getEquipment() {
         return equipment;
     }
 
+    @Override
     public void setEquipment(Equipment[] equipment) throws HomeEquipmentWrongException{
         if (equipment == null) {
             throw new HomeEquipmentWrongException(NULL_POINTER_EXC);
@@ -35,10 +38,14 @@ public class Home {
         this.equipment = equipment;
     }
 
-    /**
-     *
-     * @param e - equipment that we want to add to home
-     */
+    @Override
+    public void set(Equipment e, int index) {
+        if (e != null && (index >= 0 && index < equipment.length)) {
+            equipment[index] = e;
+        }
+    }
+
+    @Override
     public void add(Equipment e) {
         if (e == null){
             return;
@@ -54,10 +61,7 @@ public class Home {
         equipment = newEquipment;
     }
 
-    /**
-     *
-     * @param e - equipment that we want to remove from home
-     */
+    @Override
     public void remove(Equipment e) {
         if (e == null){
             return;
@@ -77,11 +81,7 @@ public class Home {
         }
     }
 
-    /**
-     *
-     * @param e - is equipment at home
-     * @return true if equipment is at home
-     */
+    @Override
     public boolean atHome(Equipment e) {
         if (e == null) {
             return false;
@@ -96,10 +96,28 @@ public class Home {
     }
 
     @Override
+    public Equipment get(int index) {
+        if (index >= 0 && index < equipment.length) {
+            return equipment[index];
+        }
+        return null;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return equipment.length == 0;
+    }
+
+    @Override
+    public int size() {
+        return equipment.length;
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Home home = (Home) o;
+        HomeArray home = (HomeArray) o;
         return Arrays.equals(equipment, home.equipment);
     }
 

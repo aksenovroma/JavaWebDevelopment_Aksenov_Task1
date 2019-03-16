@@ -5,15 +5,15 @@ import by.epam.javatraning.aksenov.task1.model.entity.Television;
 
 /**
  * @author aksenov
- * @version 1.0
+ * @version 2.0
  */
-public class TelevisionCreator implements Creator<Double> {
+public class TelevisionCreator implements Creator {
     /**
      * Method create Television class object
      * @return Television class object
      */
     @Override
-    public Equipment create(double price, double power, boolean selector, Double diagonal) {
-        return new Television(price, power, selector, diagonal);
+    public Equipment create() {
+        return new Television();
     }
 }

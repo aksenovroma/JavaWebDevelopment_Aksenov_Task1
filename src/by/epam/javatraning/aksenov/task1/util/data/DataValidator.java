@@ -1,6 +1,7 @@
 package by.epam.javatraning.aksenov.task1.util.data;
 
 import by.epam.javatraning.aksenov.task1.util.exception.NoValidStringException;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,10 @@ import java.util.List;
  */
 
 public class DataValidator {
+    private static final Logger log = Logger.getRootLogger();
+
+    private static final String SUCCESSFUL_VALIDATION = "data was validate";
+
     private static final String DATA_REGEX;
     private static final String NO_VALID_STRING_EXCEPTION;
 
@@ -42,6 +47,7 @@ public class DataValidator {
             if (list.size() == 0) {
                 throw new NoValidStringException(NO_VALID_STRING_EXCEPTION);
             }
+            log.trace(SUCCESSFUL_VALIDATION);
 
             return list;
         }

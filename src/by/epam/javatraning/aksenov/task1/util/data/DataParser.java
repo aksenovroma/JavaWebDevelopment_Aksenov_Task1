@@ -1,6 +1,7 @@
 package by.epam.javatraning.aksenov.task1.util.data;
 
 import by.epam.javatraning.aksenov.task1.util.EquipmentBuffer;
+import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,6 +14,9 @@ import java.util.List;
  * (special entity-class that storing information about equipments)
  */
 public class DataParser {
+    private static final Logger log = Logger.getRootLogger();
+
+    private static final String SUCCESSFUL_PARSING = "data was parse";
     /**
      *
      * @param list - list of valid strings with information about equipments
@@ -38,6 +42,7 @@ public class DataParser {
 
                 equipmentBuffers.add(new EquipmentBuffer(name, price, power, selector, someField));
             }
+            log.trace(SUCCESSFUL_PARSING);
 
             return equipmentBuffers;
         }

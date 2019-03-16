@@ -5,15 +5,15 @@ import by.epam.javatraning.aksenov.task1.model.entity.Microwave;
 
 /**
  * @author aksenov
- * @version 1.0
+ * @version 2.0
  */
-public class MicrowaveCreator implements Creator<Double> {
+public class MicrowaveCreator implements Creator {
     /**
      * Method create Microwave class object
      * @return Microwave class object
      */
     @Override
-    public Equipment create(double price, double power, boolean selector, Double volume) {
-        return new Microwave(price, power, selector, volume);
+    public Equipment create() {
+        return new Microwave();
     }
 }

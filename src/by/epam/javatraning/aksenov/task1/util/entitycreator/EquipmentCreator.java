@@ -1,7 +1,14 @@
 package by.epam.javatraning.aksenov.task1.util.entitycreator;
 
 import by.epam.javatraning.aksenov.task1.model.entity.Equipment;
+import by.epam.javatraning.aksenov.task1.model.entity.Lamp;
+import by.epam.javatraning.aksenov.task1.model.entity.Microwave;
+import by.epam.javatraning.aksenov.task1.model.entity.Television;
+import by.epam.javatraning.aksenov.task1.model.exception.logic.WrongArgumentException;
 import by.epam.javatraning.aksenov.task1.util.EquipmentBuffer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author aksenov
@@ -10,48 +17,52 @@ import by.epam.javatraning.aksenov.task1.util.EquipmentBuffer;
 public class EquipmentCreator {
     /**
      *
-     * @param equipmentTypes - arrays of objects that must convert to Equipment class objects
+     * @param equipmentBuffers - arrays of objects that must convert to Equipment class objects
      * @return array of Equipment class objects
      */
-    public static Equipment[] create(EquipmentBuffer[] equipmentTypes) {
-        if (equipmentTypes == null) {
-            return null;
-        }
+    public static List<Equipment> create(List<EquipmentBuffer> equipmentBuffers) {
+        List<Equipment> equipment = null;
 
-        Equipment[] equipment = new Equipment[equipmentTypes.length];
+        if (equipmentBuffers != null) {
+            equipment = new ArrayList<>();
 
-        for (int i = 0; i < equipmentTypes.length; i++) {
-            /*
-            name of the class whose object we want to create
-             */
-            String name = equipmentTypes[i].getName();
+            for (EquipmentBuffer eBuffer : equipmentBuffers) {
+                int index = equipmentBuffers.indexOf(eBuffer);
+                /*
+                name of the class whose object we want to create
+                 */
+                String name = eBuffer.getName();
 
-            Creator creator = chooseCreator(name);
+                Creator creator = chooseCreator(name);
 
-            /*
-            initializing variables to create object
-             */
-            double price = equipmentTypes[i].getPrice();
-            double power = equipmentTypes[i].getPower();
-            boolean selector = equipmentTypes[i].isSelector();
-            String someField = equipmentTypes[i].getSomeField();
+                if (creator != null) {
+                    equipment.add(creator.create());
 
-            /*
-            depending on the type of object the field 'someField' will have different types
-             */
-            if (creator != null) {
-                if (creator instanceof LampCreator) {
-                    int lightbulb = Integer.parseInt(someField); //convert someField to int
-                    equipment[i] = creator.create(price, power, selector, lightbulb);
-                } else if (creator instanceof MicrowaveCreator) {
-                    double volume = Double.parseDouble(someField); //convert someField to double
-                    equipment[i] = creator.create(price, power, selector, volume);
-                } else if (creator instanceof TelevisionCreator) {
-                    double diagonal = Double.parseDouble(someField); //convert someField to double
-                    equipment[i] = creator.create(price, power, selector, diagonal);
+                    String someField = eBuffer.getSomeField();
+                    Equipment tempEquipment = equipment.get(index);
+
+                    try {
+                        tempEquipment.setPrice(eBuffer.getPrice());
+                        tempEquipment.setPower(eBuffer.getPower());
+                        tempEquipment.setSelector(eBuffer.isSelector());
+
+                        if (creator instanceof LampCreator) {
+                            int lightbulb = Integer.parseInt(someField);
+                            ((Lamp) tempEquipment).setLightbulb(lightbulb);
+                        } else if (creator instanceof MicrowaveCreator) {
+                            double volume = Double.parseDouble(someField);
+                            ((Microwave) tempEquipment).setVolume(volume);
+                        } else {
+                            double diagonal = Double.parseDouble(someField);
+                            ((Television) tempEquipment).setDiagonal(diagonal);
+                        }
+                    } catch (WrongArgumentException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
+
         return equipment;
     }
 
@@ -61,24 +72,22 @@ public class EquipmentCreator {
      * @return creator object
      */
     private static Creator chooseCreator(String name) {
-        if (name == null) {
-            return null;
-        }
-
         Creator creator = null;
 
-        switch (name) {
-            case "Microwave": {
-                creator = new MicrowaveCreator();
-                break;
-            }
-            case "Lamp": {
-                creator = new LampCreator();
-                break;
-            }
-            case "Television": {
-                creator = new TelevisionCreator();
-                break;
+        if (name != null) {
+            switch (name.toUpperCase()) {
+                case "MICROWAVE": {
+                    creator = new MicrowaveCreator();
+                    break;
+                }
+                case "LAMP": {
+                    creator = new LampCreator();
+                    break;
+                }
+                case "TELEVISION": {
+                    creator = new TelevisionCreator();
+                    break;
+                }
             }
         }
 

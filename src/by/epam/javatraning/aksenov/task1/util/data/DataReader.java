@@ -1,6 +1,7 @@
 package by.epam.javatraning.aksenov.task1.util.data;
 
 import by.epam.javatraning.aksenov.task1.util.exception.EmptyFileException;
+import org.apache.log4j.Logger;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -14,7 +15,10 @@ import java.util.List;
  */
 
 public class DataReader {
+    private static final Logger log = Logger.getRootLogger();
+
     private static final String EMPTY_FILE_EXCEPTION = "file is empty";
+    private static final String SUCCESSFUL_READING = "data was read";
 
     /**
      *
@@ -40,8 +44,9 @@ public class DataReader {
                 }
 
             } catch (IOException e) {
-                e.printStackTrace();
+                log.error(e);
             }
+            log.trace(SUCCESSFUL_READING);
 
             return builder.toString();
         }

@@ -1,13 +1,15 @@
 package by.epam.javatraning.aksenov.task1.model.entity;
 
+import by.epam.javatraning.aksenov.task1.model.entity.container.Home;
+import by.epam.javatraning.aksenov.task1.model.entity.container.HomeArray;
 import by.epam.javatraning.aksenov.task1.model.exception.logic.HomeEquipmentWrongException;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.*;
 
-public class HomeTest {
-    private Home home1;
+public class HomeArrayTest {
+    private HomeArray home1;
     private Equipment[] equipment1;
     private Equipment[] equipment2;
     private Lamp lamp1;
@@ -23,12 +25,12 @@ public class HomeTest {
         equipment1 = new Equipment[]{lamp1, microwave, television};
         equipment2 = new Equipment[]{lamp1, microwave, television, lamp2};
 
-        home1 = new Home(equipment1);
+        home1 = new HomeArray(equipment1);
     }
 
     @Test
     public void testConstructorHome() {
-        Home testHome = new Home(equipment1);
+        HomeArray testHome = new HomeArray(equipment1);
 
         Equipment[] expected = equipment1;
         Equipment[] actual = testHome.getEquipment();
@@ -38,7 +40,7 @@ public class HomeTest {
 
     @Test
     public void testConstructorHomeNullArr() {
-        Home testHome = new Home(null);
+        HomeArray testHome = new HomeArray(null);
 
         Equipment[] expected = new Equipment[0];
         Equipment[] actual = testHome.getEquipment();
@@ -47,9 +49,50 @@ public class HomeTest {
     }
 
     @Test
+    public void testGetEquipment() {
+        Equipment[] expected = equipment1;
+        Equipment[] actual = home1.getEquipment();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGet() {
+        Equipment expected = lamp1;
+        Equipment actual = home1.get(0);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetWrongIndex() {
+        Equipment expected = null;
+        Equipment actual = home1.get(3);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsEmpty() {
+        Equipment[] equipment = new Equipment[0];
+        Home home = new HomeArray(equipment);
+
+        assertFalse(home1.isEmpty());
+        assertTrue(home.isEmpty());
+    }
+
+    @Test
+    public void testSize() {
+        int expected = 3;
+        int actual = home1.size();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
     public void testSetEquipment() throws HomeEquipmentWrongException {
-        Home expected = home1;
-        Home actual = new Home(equipment2);
+        HomeArray expected = home1;
+        HomeArray actual = new HomeArray(equipment2);
 
         actual.setEquipment(equipment1);
 
@@ -63,8 +106,8 @@ public class HomeTest {
 
     @Test
     public void testAdd() {
-        Home expected = new Home(equipment2);
-        Home actual = new Home(equipment1);
+        HomeArray expected = new HomeArray(equipment2);
+        HomeArray actual = new HomeArray(equipment1);
 
         actual.add(lamp2);
 
@@ -73,8 +116,8 @@ public class HomeTest {
 
     @Test
     public void testAddNullPtr() {
-        Home expected = new Home(equipment2);
-        Home actual = new Home(equipment2);
+        HomeArray expected = new HomeArray(equipment2);
+        HomeArray actual = new HomeArray(equipment2);
 
         actual.add(null);
 
@@ -104,8 +147,8 @@ public class HomeTest {
 
     @Test
     public void testRemove() {
-        Home expected = new Home(equipment1);
-        Home actual = new Home(equipment2);
+        HomeArray expected = new HomeArray(equipment1);
+        HomeArray actual = new HomeArray(equipment2);
 
         actual.remove(lamp2);
 
@@ -114,8 +157,8 @@ public class HomeTest {
 
     @Test
     public void testRemoveNullPtr() {
-        Home expected = new Home(equipment2);
-        Home actual = new Home(equipment2);
+        HomeArray expected = new HomeArray(equipment2);
+        HomeArray actual = new HomeArray(equipment2);
 
         actual.remove(null);
 
@@ -124,8 +167,8 @@ public class HomeTest {
 
     @Test
     public void testRemoveNotAtHome() {
-        Home expected = new Home(equipment1);
-        Home actual = new Home(equipment2);
+        HomeArray expected = new HomeArray(equipment1);
+        HomeArray actual = new HomeArray(equipment2);
 
         actual.remove(lamp2);
 
@@ -134,7 +177,7 @@ public class HomeTest {
 
     @Test
     public void testEquals() {
-        Home home2 = new Home(equipment1);
+        HomeArray home2 = new HomeArray(equipment1);
 
         boolean actual = home1.equals(home2);
 
@@ -143,7 +186,7 @@ public class HomeTest {
 
     @Test
     public void testEqualsDifferentEquipment() {
-        Home home2 = new Home(equipment2);
+        HomeArray home2 = new HomeArray(equipment2);
 
         boolean actual = home1.equals(home2);
 
@@ -159,7 +202,7 @@ public class HomeTest {
 
     @Test
     public void testEqualsNullPtr() {
-        Home home2 = null;
+        HomeArray home2 = null;
 
         boolean actual = home1.equals(home2);
 
@@ -177,7 +220,7 @@ public class HomeTest {
 
     @Test
     public void testHashCode() {
-        Home home2 = new Home(equipment1);
+        HomeArray home2 = new HomeArray(equipment1);
 
         boolean actual = (home1.hashCode() == home2.hashCode());
 
@@ -186,7 +229,7 @@ public class HomeTest {
 
     @Test
     public void testHashCodeWrong() {
-        Home home2 = new Home(equipment2);
+        HomeArray home2 = new HomeArray(equipment2);
 
         boolean actual = (home1.hashCode() == home2.hashCode());
 
@@ -195,7 +238,7 @@ public class HomeTest {
 
     @Test
     public void testHashCodeSameObject() {
-        Home home2 = home1;
+        HomeArray home2 = home1;
 
         boolean actual = (home1.hashCode() == home2.hashCode());
 
