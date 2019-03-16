@@ -4,6 +4,7 @@ asdas
 Lamp,20,off
 Television,230.3,240,off,23
 Lamp,50,60,on,3
+Lamp,60.4,70,on,4
 
   e12
  1231sda

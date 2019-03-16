@@ -5,7 +5,7 @@ import by.epam.javatraning.aksenov.task1.model.logic.Calculator;
 import by.epam.javatraning.aksenov.task1.model.logic.Searcher;
 import by.epam.javatraning.aksenov.task1.model.logic.Sorter;
 import by.epam.javatraning.aksenov.task1.util.*;
-import by.epam.javatraning.aksenov.task1.util.data.DataConverter;
+import by.epam.javatraning.aksenov.task1.util.data.DataParser;
 import by.epam.javatraning.aksenov.task1.util.data.DataReader;
 import by.epam.javatraning.aksenov.task1.util.data.DataValidator;
 import by.epam.javatraning.aksenov.task1.util.entitycreator.EquipmentCreator;
@@ -27,32 +27,32 @@ import java.util.List;
  */
 
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("input file name: ");
+    private static final String INPUT_FILE = "input/inputTestFile1.txt";
+    private static final String OUTPUT_FILE = "output/outputFile.txt";
 
-        String filename = UserInput.inputString();
-        List<String> list = null;
+    public static void main(String[] args) {
+        String text = null;
 
         try {
-            list = DataReader.readFile("input/" + filename);
+             text = DataReader.readFile(INPUT_FILE);
         } catch (EmptyFileException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
 
         List<String> validList = null;
 
         try {
-            validList = DataValidator.getValidString(list);
+            validList = DataValidator.getValidString(text);
         } catch (NoValidStringException e) {
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
 
-        EquipmentType[] equipmentTypes = DataConverter.strToEquipmentType(validList);
+/*        EquipmentType[] equipmentTypes = DataParser.strToEquipmentType(validList);
         Equipment[] equipment = EquipmentCreator.create(equipmentTypes);
 
         Home home = HomeCreator.create(equipment);
 
-        PrinterType printerType = UserPrinter.select();
+        PrinterType printerType = UserPrinter.select(OUTPUT_FILE);
         Printable printer = PrinterCreator.create(printerType);
 
         printer.print(home);
@@ -61,7 +61,7 @@ public class Main {
         double count = Calculator.sumPowerOfDevices(home);
         printer.print(count);
         Equipment e = Searcher.findMaxPowerEquipment(home);
-        printer.print(e);
+        printer.print(e);*/
 
     }
 }

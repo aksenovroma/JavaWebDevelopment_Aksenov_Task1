@@ -1,11 +1,7 @@
 package by.epam.javatraning.aksenov.task1.util.entitycreator;
 
 import by.epam.javatraning.aksenov.task1.model.entity.Equipment;
-import by.epam.javatraning.aksenov.task1.util.EquipmentType;
-import by.epam.javatraning.aksenov.task1.util.entitycreator.Creator;
-import by.epam.javatraning.aksenov.task1.util.entitycreator.LampCreator;
-import by.epam.javatraning.aksenov.task1.util.entitycreator.MicrowaveCreator;
-import by.epam.javatraning.aksenov.task1.util.entitycreator.TelevisionCreator;
+import by.epam.javatraning.aksenov.task1.util.EquipmentBuffer;
 
 /**
  * @author aksenov
@@ -17,7 +13,7 @@ public class EquipmentCreator {
      * @param equipmentTypes - arrays of objects that must convert to Equipment class objects
      * @return array of Equipment class objects
      */
-    public static Equipment[] create(EquipmentType[] equipmentTypes) {
+    public static Equipment[] create(EquipmentBuffer[] equipmentTypes) {
         if (equipmentTypes == null) {
             return null;
         }

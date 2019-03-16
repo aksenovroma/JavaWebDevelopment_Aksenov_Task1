@@ -6,7 +6,23 @@ package by.epam.javatraning.aksenov.task1.view;
  *
  * Enum PrinterType used for select the type of information output
  */
+
 public enum PrinterType {
     CONSOLE,
-    FILE
+    FILE;
+
+    private String fileName;
+
+    PrinterType() {
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
 }
+
+

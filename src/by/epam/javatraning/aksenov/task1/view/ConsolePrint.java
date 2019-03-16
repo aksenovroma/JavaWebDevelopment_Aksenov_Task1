@@ -9,10 +9,8 @@ package by.epam.javatraning.aksenov.task1.view;
 public class ConsolePrint implements Printable {
     @Override
     public void print(Object o) {
-        if (o == null) {
-            return;
+        if (o != null) {
+            System.out.println(o);
         }
-
-        System.out.println(o);
     }
 }

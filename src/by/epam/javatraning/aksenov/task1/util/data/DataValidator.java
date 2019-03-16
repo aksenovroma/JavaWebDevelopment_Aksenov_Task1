@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * @author aksenov
- * @version 1.0
+ * @version 2.0
  *
  * DataValidator checks if the data is appropriate
  */
@@ -23,27 +23,29 @@ public class DataValidator {
 
     /**
      *
-     * @param stringList - list of strings that we want to check
+     * @param text - list of strings that we want to check
      * @return - list of strings that are fit the pattern DATA_REGEX
      * @throws NoValidStringException - exception is thrown if the list hasn't valid strings
      */
-    public static List<String> getValidString(List<String> stringList) throws NoValidStringException {
-        if (stringList == null) {
-            return null;
-        }
+    public static List<String> getValidString(String text) throws NoValidStringException {
+        if (text != null) {
+            String[] strings = text.split("\\n");
 
-        List<String> list = new ArrayList<>();
+            List<String> list = new ArrayList<>();
 
-        for (String str : stringList) {
-            if (str.matches(DATA_REGEX)) {
-                list.add(str);
+            for (String str : strings) {
+                if (str.matches(DATA_REGEX)) {
+                    list.add(str);
+                }
             }
+
+            if (list.size() == 0) {
+                throw new NoValidStringException(NO_VALID_STRING_EXCEPTION);
+            }
+
+            return list;
         }
 
-        if (list.size() == 0) {
-            throw new NoValidStringException(NO_VALID_STRING_EXCEPTION);
-        }
-
-        return list;
+        return null;
     }
 }

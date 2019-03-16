@@ -10,30 +10,28 @@ public class UserPrinter {
     private static final String INVITE_FOR_USER = "Select output type of information (Console/File): ";
 
     /**
-     *
      * @return PrinterType class object that user want to use
      */
-    public static PrinterType select() {
+    public static PrinterType select(String fileName) {
         PrinterType printerType = PrinterType.CONSOLE;
 
         System.out.println(INVITE_FOR_USER);
 
         String choice = UserInput.inputString();
 
-        if (choice == null){
-            return printerType;
-        }
+        if (choice != null) {
+            choice = choice.toUpperCase();
 
-        choice = choice.toUpperCase();
-
-        switch (choice) {
-            case "CONSOLE": {
-                printerType = PrinterType.CONSOLE;
-                break;
-            }
-            case "FILE": {
-                printerType = PrinterType.FILE;
-                break;
+            switch (choice) {
+                case "CONSOLE": {
+                    printerType = PrinterType.CONSOLE;
+                    break;
+                }
+                case "FILE": {
+                    PrinterType.FILE.setFileName(fileName);
+                    printerType = PrinterType.FILE;
+                    break;
+                }
             }
         }
 

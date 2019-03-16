@@ -24,7 +24,7 @@ public class PrinterCreator {
                 break;
             }
             case FILE: {
-                printer = new FilePrint();
+                printer = new FilePrint(printerType.getFileName());
                 break;
             }
         }
