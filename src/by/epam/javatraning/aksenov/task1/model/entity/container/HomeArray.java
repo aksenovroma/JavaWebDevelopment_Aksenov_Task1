@@ -4,6 +4,7 @@ import by.epam.javatraning.aksenov.task1.model.entity.Equipment;
 import by.epam.javatraning.aksenov.task1.model.exception.logic.HomeEquipmentWrongException;
 
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @author aksenov
@@ -22,6 +23,22 @@ public class HomeArray implements Home{
     public HomeArray(Equipment... equipment) {
         if (equipment != null) {
             this.equipment = equipment;
+        }
+    }
+
+    public HomeArray(List<Equipment> equipment) {
+        if (equipment != null) {
+            this.equipment = new Equipment[equipment.size()];
+
+            for (int i = 0; i < size(); i++) {
+                this.equipment[i] = equipment.get(i);
+            }
+        }
+    }
+
+    public HomeArray(Home home) {
+        if (home != null) {
+            this.equipment = (home.getEquipment()).clone();
         }
     }
 

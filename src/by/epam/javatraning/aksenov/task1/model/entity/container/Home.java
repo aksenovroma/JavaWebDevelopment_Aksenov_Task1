@@ -6,7 +6,7 @@ import by.epam.javatraning.aksenov.task1.model.exception.logic.HomeEquipmentWron
 public interface Home {
     void setEquipment(Equipment[] equipment) throws HomeEquipmentWrongException;
 
-    Object getEquipment();
+    Equipment[] getEquipment();
 
     Equipment get(int index);
 

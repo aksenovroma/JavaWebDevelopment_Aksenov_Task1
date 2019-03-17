@@ -20,9 +20,28 @@ public class HomeList implements Home {
         }
     }
 
+    public HomeList(Equipment[] equipment) {
+        if (equipment != null) {
+            this.equipment = Arrays.asList(equipment);
+        }
+    }
+
+    public HomeList(Home home) {
+        if (home != null) {
+            Equipment[] equipments = home.getEquipment().clone();
+            this.equipment = new ArrayList<>(Arrays.asList(equipments));
+        }
+    }
+
     @Override
-    public List<Equipment> getEquipment() {
-        return equipment;
+    public Equipment[] getEquipment() {
+        Equipment[] equipments = new Equipment[equipment.size()];
+
+        for (int i = 0; i < equipments.length; i++) {
+            equipments[i] = equipment.get(i);
+        }
+
+        return equipments;
     }
 
     @Override
