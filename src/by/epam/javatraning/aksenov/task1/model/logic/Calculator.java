@@ -31,7 +31,7 @@ public class Calculator {
                 sumPower += home.get(i).getPower();
             }
         }
-        log.info(SUM_POWER_OF_DEVICE + sumPower);
+        log.trace(SUM_POWER_OF_DEVICE + sumPower);
 
         return sumPower;
     }
@@ -53,7 +53,7 @@ public class Calculator {
                 }
             }
         }
-        log.info(SUM_POWER_OF_ON_DEVICE + sumPower);
+        log.trace(SUM_POWER_OF_ON_DEVICE + sumPower);
 
         return sumPower;
     }

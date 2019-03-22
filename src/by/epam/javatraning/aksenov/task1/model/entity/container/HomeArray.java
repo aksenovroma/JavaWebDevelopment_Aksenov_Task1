@@ -1,7 +1,12 @@
 package by.epam.javatraning.aksenov.task1.model.entity.container;
 
 import by.epam.javatraning.aksenov.task1.model.entity.Equipment;
+import by.epam.javatraning.aksenov.task1.model.entity.Lamp;
+import by.epam.javatraning.aksenov.task1.model.entity.Microwave;
+import by.epam.javatraning.aksenov.task1.model.entity.Television;
 import by.epam.javatraning.aksenov.task1.model.exception.logic.HomeEquipmentWrongException;
+import by.epam.javatraning.aksenov.task1.model.exception.logic.WrongArgumentException;
+import org.apache.log4j.Logger;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,6 +21,8 @@ import java.util.List;
  */
 
 public class HomeArray implements Home{
+    private static final Logger log = Logger.getRootLogger();
+
     private static final String NULL_POINTER_EXC = "argument can't be null";
 
     private Equipment[] equipment = new Equipment[0];
@@ -38,7 +45,44 @@ public class HomeArray implements Home{
 
     public HomeArray(Home home) {
         if (home != null) {
-            this.equipment = (home.getEquipment()).clone();
+            Equipment[] equipmentArr = home.getEquipment();
+            equipment = new Equipment[equipmentArr.length];
+
+            for (int i = 0; i < equipmentArr.length; i++) {
+                if (equipmentArr[i] != null) {
+                    Equipment equip = new Equipment();
+
+                    if (equipmentArr[i] instanceof Lamp) {
+                        equip = new Lamp();
+                        try {
+                            equip.setPrice(equipmentArr[i].getPrice());
+                            equip.setPower(equipmentArr[i].getPower());
+                            ((Lamp) equip).setLightbulb(((Lamp) equipmentArr[i]).getLightbulb());
+                        } catch (WrongArgumentException exc) {
+                            log.error(exc);
+                        }
+                    } else if (equipmentArr[i] instanceof Television) {
+                        equip = new Television();
+                        try {
+                            equip.setPrice(equipmentArr[i].getPrice());
+                            equip.setPower(equipmentArr[i].getPower());
+                            ((Television) equip).setDiagonal(((Television) equipmentArr[i]).getDiagonal());
+                        } catch (WrongArgumentException exc) {
+                            log.error(exc);
+                        }
+                    } else if (equipmentArr[i] instanceof Microwave) {
+                        equip = new Microwave();
+                        try {
+                            equip.setPrice(equipmentArr[i].getPrice());
+                            equip.setPower(equipmentArr[i].getPower());
+                            ((Microwave) equip).setVolume(((Microwave) equipmentArr[i]).getVolume());
+                        } catch (WrongArgumentException exc) {
+                            log.error(exc);
+                        }
+                    }
+                    equipment[i] = equip;
+                }
+            }
         }
     }
 

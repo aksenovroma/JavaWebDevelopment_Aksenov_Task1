@@ -34,7 +34,7 @@ public class Sorter {
                     }
                 }
             }
-            log.trace(SUCCESSFUL_SORT_BY_POWER);
         }
+        log.trace(SUCCESSFUL_SORT_BY_POWER);
     }
 }
