@@ -1,0 +1,57 @@
+[main] TRACE root  - data was read
+[main] TRACE root  - data was validate
+[main] TRACE root  - data was parse
+[main] TRACE root  - data was read
+[main] TRACE root  - data was validate
+[main] TRACE root  - data was parse
+[main] TRACE root  - data was read
+[main] TRACE root  - data was validate
+[main] TRACE root  - data was parse
+[main] TRACE root  - data was read
+[main] TRACE root  - data was validate
+[main] TRACE root  - data was parse
+[main] TRACE root  - data was read
+[main] TRACE root  - data was validate
+[main] TRACE root  - data was parse
+[main] TRACE root  - data was read
+[main] TRACE root  - data was validate
+[main] TRACE root  - data was parse
+[main] TRACE root  - data was read
+[main] TRACE root  - data was validate
+[main] TRACE root  - data was parse
+[main] TRACE root  - data was read
+[main] TRACE root  - data was validate
+[main] TRACE root  - data was parse
+[main] TRACE root  - data was read
+[main] TRACE root  - data was validate
+[main] TRACE root  - data was parse
+[main] TRACE root  - data was read
+[main] TRACE root  - data was validate
+[main] TRACE root  - data was parse
+[main] TRACE root  - data was read
+[main] TRACE root  - data was validate
+[main] TRACE root  - data was parse
+[main] TRACE root  - data was read
+[main] TRACE root  - data was validate
+[main] TRACE root  - data was parse
+[main] TRACE root  - data was read
+[main] TRACE root  - data was validate
+[main] TRACE root  - data was parse
+[main] TRACE root  - data was read
+[main] TRACE root  - data was validate
+[main] TRACE root  - data was parse
+[main] TRACE root  - data was read
+[main] TRACE root  - data was validate
+[main] TRACE root  - data was parse
+[main] TRACE root  - data was read
+[main] TRACE root  - data was validate
+[main] TRACE root  - data was parse
+[main] TRACE root  - sort was finished
+[main] INFO  root  - method sumPowerOfDevices returned = 870.0
+[main] INFO  root  - method findMaxPowerEquipment returned = Microwave{price=120.5, power=500.0, selector=true, volume=15.0}
+[main] TRACE root  - data was read
+[main] TRACE root  - data was validate
+[main] TRACE root  - data was parse
+[main] TRACE root  - sort was finished
+[main] INFO  root  - method sumPowerOfDevices returned = 630.0
+[main] INFO  root  - method findMaxPowerEquipment returned = Microwave{price=120.5, power=500.0, selector=true, volume=15.0}

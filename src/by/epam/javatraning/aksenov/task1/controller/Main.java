@@ -3,6 +3,7 @@ package by.epam.javatraning.aksenov.task1.controller;
 import by.epam.javatraning.aksenov.task1.model.entity.*;
 import by.epam.javatraning.aksenov.task1.model.entity.container.Home;
 import by.epam.javatraning.aksenov.task1.model.entity.container.HomeArray;
+import by.epam.javatraning.aksenov.task1.model.entity.container.HomeList;
 import by.epam.javatraning.aksenov.task1.model.exception.logic.HomeEquipmentWrongException;
 import by.epam.javatraning.aksenov.task1.model.logic.Calculator;
 import by.epam.javatraning.aksenov.task1.model.logic.Searcher;
@@ -14,12 +15,14 @@ import by.epam.javatraning.aksenov.task1.util.data.DataValidator;
 import by.epam.javatraning.aksenov.task1.util.entitycreator.EquipmentCreator;
 import by.epam.javatraning.aksenov.task1.util.entitycreator.HomeArrayCreator;
 import by.epam.javatraning.aksenov.task1.util.entitycreator.HomeCreator;
+import by.epam.javatraning.aksenov.task1.util.entitycreator.HomeListCreator;
 import by.epam.javatraning.aksenov.task1.util.exception.EmptyFileException;
 import by.epam.javatraning.aksenov.task1.util.exception.NoValidStringException;
 import by.epam.javatraning.aksenov.task1.view.Printable;
 import by.epam.javatraning.aksenov.task1.view.PrinterType;
 import org.apache.log4j.Logger;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**

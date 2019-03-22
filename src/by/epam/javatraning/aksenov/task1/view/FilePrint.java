@@ -1,5 +1,7 @@
 package by.epam.javatraning.aksenov.task1.view;
 
+import org.apache.log4j.Logger;
+
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -10,6 +12,8 @@ import java.io.IOException;
  * FilePrint used for print information to file
  */
 public class FilePrint implements Printable {
+    private static final Logger log = Logger.getRootLogger();
+
     private String fileName;
 
     public FilePrint(String fileName) {
@@ -22,7 +26,7 @@ public class FilePrint implements Printable {
             try (FileWriter fileWriter = new FileWriter(fileName, true)) {
                 fileWriter.write(o.toString() + '\n');
             } catch (IOException e) {
-                System.out.println(e.getMessage());
+                log.error(e);
             }
         }
     }
